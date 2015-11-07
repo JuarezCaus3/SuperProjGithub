@@ -13,17 +13,16 @@ import javax.persistence.Entity;
  * @author David
  */
 @Entity
-public class Administrator extends User implements Serializable {
+public class EventManager extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    public Administrator() {
+    
+    
+    
+    public EventManager() {
     }
 
-    public Administrator(int id, String name, String password, String email) {
+    public EventManager(int id, String name, String password, String email) {
         super(id, name, password, email);
     }
-    
-    
-    
 }
