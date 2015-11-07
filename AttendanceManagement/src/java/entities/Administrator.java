@@ -20,7 +20,7 @@ public class Administrator extends User implements Serializable {
     public Administrator() {
     }
 
-    public Administrator(int id, String name, String password, String email) {
+    public Administrator(long id, String name, String password, String email) {
         super(id, name, password, email);
     }
     

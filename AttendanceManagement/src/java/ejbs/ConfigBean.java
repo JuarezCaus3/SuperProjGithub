@@ -21,18 +21,21 @@ public class ConfigBean {
     @EJB
     private AdministratorBean administratorBean;
     @EJB
-    private EventManagerBean courseBean;
+    private EventManagerBean eventManagerBean;
     @EJB
-    private AttendantBean studentBean;
+    private AttendantBean attendantBean;
     @EJB
-    private EventBean subjectBean;   
+    private EventBean eventBean;   
 
     @PostConstruct
     public void populateBD() {
 
         try {
 
-          
+            attendantBean.create(111111, "Manuel", "Manuel", "dae.ei.ipleiria@gmail.com");
+            attendantBean.create(222222, "Antonio", "António", "dae.ei.ipleiria@gmail.com");
+            attendantBean.create(333333, "Ana", "Ana", "dae.ei.ipleiria@gmail.com");
+            attendantBean.create(444444, "Jose", "José", "dae.ei.ipleiria@gmail.com");
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());

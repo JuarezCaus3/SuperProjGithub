@@ -8,37 +8,39 @@ package entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author David
  */
 @Entity
+@Table(name = "USERS")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    private int id;
+    private long id;
     private String name;
     private String password;
     private String email;
 
-    public User() {
+    protected User() {
         
     }
 
-    public User(int id, String name, String password, String email) {
+    protected User(long id, String name, String password, String email) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
     }
     
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

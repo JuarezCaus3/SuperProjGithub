@@ -5,7 +5,11 @@
  */
 package ejbs;
 
+import entities.Administrator;
+import javax.ejb.EJBException;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -14,6 +18,17 @@ import javax.ejb.Stateless;
 @Stateless
 public class AdministratorBean {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @PersistenceContext
+    private EntityManager em;
+
+    public void create(int id, String password, String name, String email) {
+        try {
+            if(em.find(Administrator.class, id) != null){
+                return;
+            }
+            em.persist(new Administrator(id, password, name, email));
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
 }

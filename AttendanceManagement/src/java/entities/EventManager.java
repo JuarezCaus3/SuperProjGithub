@@ -22,7 +22,7 @@ public class EventManager extends User implements Serializable {
     public EventManager() {
     }
 
-    public EventManager(int id, String name, String password, String email) {
+    public EventManager(long id, String name, String password, String email) {
         super(id, name, password, email);
     }
 }
