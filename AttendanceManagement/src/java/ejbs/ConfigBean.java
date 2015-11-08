@@ -32,10 +32,10 @@ public class ConfigBean {
 
         try {
 
-            attendantBean.create(111111, "Manuel", "Manuel", "dae.ei.ipleiria@gmail.com");
-            attendantBean.create(222222, "Antonio", "António", "dae.ei.ipleiria@gmail.com");
-            attendantBean.create(333333, "Ana", "Ana", "dae.ei.ipleiria@gmail.com");
-            attendantBean.create(444444, "Jose", "José", "dae.ei.ipleiria@gmail.com");
+            attendantBean.create(123, "Manuel", "Manuel", "dae.ei.ipleiria@gmail.com");
+            attendantBean.create(1234, "Antonio", "António", "dae.ei.ipleiria@gmail.com");
+            attendantBean.create(12345, "Ana", "Ana", "dae.ei.ipleiria@gmail.com");
+            attendantBean.create(123456, "Jose", "José", "dae.ei.ipleiria@gmail.com");
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());

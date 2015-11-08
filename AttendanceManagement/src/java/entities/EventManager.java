@@ -16,7 +16,7 @@ import javax.persistence.Entity;
 public class EventManager extends User implements Serializable {
 
     
-    public EventManager() {
+    protected EventManager() {
     }
 
     public EventManager(long id, String name, String password, String email) {

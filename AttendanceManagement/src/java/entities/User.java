@@ -21,6 +21,7 @@ import javax.validation.constraints.Pattern;
 public class User implements Serializable {
 
     @Id
+    @NotNull
     protected long id;
     @NotNull(message = "Name must not be empty")
     protected String name;

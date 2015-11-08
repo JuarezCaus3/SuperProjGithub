@@ -15,9 +15,8 @@ import javax.persistence.Entity;
 @Entity
 public class Administrator extends User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
-    public Administrator() {
+    protected Administrator() {
     }
 
     public Administrator(long id, String name, String password, String email) {

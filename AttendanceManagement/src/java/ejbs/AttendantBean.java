@@ -27,6 +27,7 @@ public class AttendantBean {
     public void create(long id, String password, String name, String email) {
         try {
             Attendant attendant = new Attendant(id, password, name, email);
+            System.out.println(attendant.toString());
             em.persist(attendant);
             
         } catch (Exception e) {

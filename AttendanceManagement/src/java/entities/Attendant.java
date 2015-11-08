@@ -19,10 +19,10 @@ import javax.persistence.Table;
 @Table(name = "ATTENDANTS")
 @NamedQueries({
     @NamedQuery(name = "getAllAttendants",
-    query = "SELECT a FROM Attendant a ORDER BY a.name")})
+    query = "SELECT a FROM Attendant a ORDER BY a.id")})
 public class Attendant extends User implements Serializable {
 
-    public Attendant() {
+    protected Attendant() {
     }
 
     public Attendant(long id, String name, String password, String email) {
