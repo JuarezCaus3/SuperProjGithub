@@ -22,14 +22,16 @@ import javax.persistence.Table;
     query = "SELECT a FROM Attendant a ORDER BY a.name")})
 public class Attendant extends User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     public Attendant() {
     }
 
     public Attendant(long id, String name, String password, String email) {
         super(id, name, password, email);
     }
-
+    
+    @Override
+    public String toString() {
+        return "Attendant{" + "username=" + id + ", password=" + password + ", name=" + name + ", email=" + email + '}';
+    }
     
 }

@@ -26,8 +26,9 @@ public class AttendantBean {
 
     public void create(long id, String password, String name, String email) {
         try {
-
-            em.persist(new Attendant(id, password, name, email));
+            Attendant attendant = new Attendant(id, password, name, email);
+            em.persist(attendant);
+            
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }

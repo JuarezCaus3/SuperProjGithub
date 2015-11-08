@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -18,12 +20,18 @@ import javax.persistence.Table;
 @Table(name = "USERS")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    private long id;
-    private String name;
-    private String password;
-    private String email;
+    protected long id;
+    @NotNull(message = "Name must not be empty")
+    protected String name;
+    @NotNull
+    protected String password;
+    @NotNull
+    @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
+            + "[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
+            + "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+            message = "Invalid email format")
+    protected String email;
 
     protected User() {
         
