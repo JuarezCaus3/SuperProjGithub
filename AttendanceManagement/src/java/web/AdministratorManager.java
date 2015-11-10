@@ -6,11 +6,8 @@
 package web;
 
 import dto.AttendantDTO;
-<<<<<<< HEAD
 import dto.EventManagerDTO;
-=======
 import dto.UserDTO;
->>>>>>> e2140c241854e2029db89a2eba65750ffab6943f
 import ejbs.AttendantBean;
 import ejbs.EventManagerBean;
 import java.util.List;
@@ -111,6 +108,14 @@ public class AdministratorManager {
             System.err.println("Error: " + e.getMessage());            
             return null;
         }
+    }
+    
+    public EventManagerDTO getNewEventManager() {
+        return newEventManager;
+    }
+
+    public void setNewEventManager(EventManagerDTO newEventManager) {
+        this.newEventManager = newEventManager;
     }
     
     public UIComponent getComponent() {
