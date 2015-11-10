@@ -4,56 +4,29 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelets</title>
+           <title>Attendance Management</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-      <h1> Ohohoh Ahaha Eheheh</h1>
-         <h1> Ohohoh Ahaha Eheheh o david e burro</h1>
-        
-        
-          <h:dataTable
-            var="attendant"
-            summary="List of all attendants"
-            value="#{administratorManager.allAttendants}"
-            rules="all"
-            cellpadding="5">
-            
-            <f:facet name="header">
-                <h:outputText value="Attendants" />
-            </f:facet>            
-
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Username" />
-                </f:facet>
-                <h:outputText value="#{attendant.id}" />
-                <!--Falta validar o formato-->
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Name" />
-                </f:facet>
-                <h:outputText value="#{attendant.name}" />
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Email" />
-                </f:facet>
-                <h:outputText value="#{attendant.email}" />
-            </h:column>                                             
-        </h:dataTable>
-        
-        <br/>
-        <br/>
+        <h1></h1>
         
         <h:form>
-            <h:commandLink value="New attendat" action="admin_attendants_create?faces-redirect=true"/>
-        </h:form>
+         <h:panelGrid columns="3">
+          <p>Username:
+              <h:outputText value="" id="username"></h:outputText> 
+              <h:message for="username" /></p>
+           
+          <p>Password:
+              <h:inputSecret value="" required="true" requiredMessage="*Falta a sua password" id="password"></h:inputSecret>
+              <h:message for="password" /></p>
+             
+             </h:panelGrid>
         
-        <br/>
-        <br/>
-    </h:body>
+              <h:commandButton  id="go" value="Login"  />
+            
+                    </h:form>
+        
+        
+    </h:body>  
 </html>
 

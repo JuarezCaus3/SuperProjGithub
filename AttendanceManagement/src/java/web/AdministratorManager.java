@@ -6,6 +6,7 @@
 package web;
 
 import dto.AttendantDTO;
+import dto.UserDTO;
 import ejbs.AttendantBean;
 import java.util.List;
 import javax.ejb.EJB;
@@ -26,11 +27,20 @@ public class AdministratorManager {
     
     private AttendantDTO newAttendant;
     private UIComponent component;
+    private UserDTO currentUser;
     
         public AdministratorManager() {
             
         newAttendant = new AttendantDTO();
 
+    }
+
+    public UserDTO getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(UserDTO currentUser) {
+        this.currentUser = currentUser;
     }
     
         /////////////// ATTENDANTS /////////////////
