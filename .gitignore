@@ -1,3 +1,5 @@
 /AttendanceManagement/nbproject/private/
 *.properties
 /AttendanceManagement/build/
+AttendanceManagement/nbproject/project.xml
+AttendanceManagement/nbproject/ant-deploy.xml
