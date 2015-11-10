@@ -3,29 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package dto;
 
-import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 /**
  *
  * @author David
  */
-@Entity
-@Table(name = "EVENTS")
-@NamedQueries({
-    @NamedQuery(name = "getAllEvents",
-    query = "SELECT e FROM Event e ORDER BY e.name")})
-public class Event implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-    @Id
+public class EventDTO {
+    
     private int id;
     
     private String name;
@@ -34,10 +21,10 @@ public class Event implements Serializable {
     private int hour;
     private int week;
 
-    public Event() {
+    public EventDTO() {
     }
 
-    public Event(int id, String name, String room, Date date, int hour, int week) {
+    public EventDTO(int id, String name, String room, Date date, int hour, int week) {
         this.id = id;
         this.name = name;
         this.room = room;
@@ -45,6 +32,15 @@ public class Event implements Serializable {
         this.hour = hour;
         this.week = week;
     }
+    
+    public void reset() {
+        setId(1);
+        setName(null);
+        setRoom(null);
+        setDate(null);
+        setHour(-1);
+        setWeek(-1);
+    }   
     
     public int getId() {
         return id;
@@ -93,6 +89,4 @@ public class Event implements Serializable {
     public void setWeek(int week) {
         this.week = week;
     }
-    
-    
 }

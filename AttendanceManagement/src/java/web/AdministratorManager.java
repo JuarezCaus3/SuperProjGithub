@@ -7,6 +7,7 @@ package web;
 
 import dto.AttendantDTO;
 import ejbs.AttendantBean;
+import ejbs.EventBean;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -23,6 +24,9 @@ public class AdministratorManager {
     
     @EJB
     private AttendantBean attendantBean;  
+    
+    @EJB
+    private EventBean eventBean;
     
     private AttendantDTO newAttendant;
     private UIComponent component;
