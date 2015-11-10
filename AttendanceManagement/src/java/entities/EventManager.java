@@ -7,12 +7,19 @@ package entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  *
  * @author David
  */
 @Entity
+/*@Table(name = "EVENTMANAGERS")
+@NamedQueries({
+    @NamedQuery(name = "getAllEventManagers",
+    query = "SELECT e FROM EventManagers e ORDER BY e.name")})*/
 public class EventManager extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
