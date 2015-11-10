@@ -6,7 +6,11 @@
 package web;
 
 import dto.AttendantDTO;
+<<<<<<< HEAD
 import dto.EventManagerDTO;
+=======
+import dto.UserDTO;
+>>>>>>> e2140c241854e2029db89a2eba65750ffab6943f
 import ejbs.AttendantBean;
 import ejbs.EventManagerBean;
 import java.util.List;
@@ -31,12 +35,21 @@ public class AdministratorManager {
     private AttendantDTO newAttendant;
     private EventManagerDTO newEventManager;
     private UIComponent component;
+    private UserDTO currentUser;
     
         public AdministratorManager() {
             
         newAttendant = new AttendantDTO();
         newEventManager = new EventManagerDTO();
 
+    }
+
+    public UserDTO getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(UserDTO currentUser) {
+        this.currentUser = currentUser;
     }
     
         /////////////// ATTENDANTS /////////////////
