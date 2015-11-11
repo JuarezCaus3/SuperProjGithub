@@ -147,6 +147,8 @@ public class AdministratorManager {
     
     //to implement
     public String loginUser(){
+        //getUserlogin
+        //switchcase ? ifs 
         
         return "";    
     }

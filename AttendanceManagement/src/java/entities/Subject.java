@@ -6,10 +6,12 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -24,13 +26,19 @@ import javax.validation.constraints.NotNull;
         uniqueConstraints
         = @UniqueConstraint(columnNames = {"NAME"}))
 @NamedQuery(name = "getAllSubjects",
-        query = "SELECT s FROM Subject s ORDER BY s.course.name s.name")
+        query = "SELECT s FROM Subject s ORDER BY s.name")
 public class Subject implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private int id;
     @NotNull
     private String name;
+    
+        @ManyToMany(mappedBy = "subjects")
+    private  List<EventManager>     managers;
+    
+        @ManyToMany (mappedBy ="subjects")
+        private List<Attendant> attendants;
 
     public int getId() {
         return id;
