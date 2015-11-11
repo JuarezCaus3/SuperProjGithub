@@ -7,7 +7,6 @@ package web;
 
 import dto.AttendantDTO;
 import dto.EventManagerDTO;
-
 import dto.UserDTO;
 import ejbs.AttendantBean;
 import ejbs.EventManagerBean;
@@ -127,6 +126,14 @@ public class AdministratorManager {
             System.err.println("Error: " + e.getMessage());            
             return null;
         }
+    }
+    
+    public EventManagerDTO getNewEventManager() {
+        return newEventManager;
+    }
+
+    public void setNewEventManager(EventManagerDTO newEventManager) {
+        this.newEventManager = newEventManager;
     }
     
     public UIComponent getComponent() {
