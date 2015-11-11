@@ -31,5 +31,8 @@ public class Attendant extends User implements Serializable {
         super(id, name, password, email);
     }
 
-    
+      @Override
+        public String getUserType(){
+         return "Attendant";
+    }
 }

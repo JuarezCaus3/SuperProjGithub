@@ -32,4 +32,9 @@ public class EventManager extends User implements Serializable {
     public EventManager(long id, String name, String password, String email) {
         super(id, name, password, email);
     }
+    
+    @Override
+        public String getUserType(){
+         return "Manager";
+    }
 }
