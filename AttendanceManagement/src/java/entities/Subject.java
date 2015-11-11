@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -39,6 +40,9 @@ public class Subject implements Serializable {
     
         @ManyToMany (mappedBy ="subjects")
         private List<Attendant> attendants;
+        
+        @OneToMany(mappedBy = "subject")
+        private List<Event> eventos;
 
     public int getId() {
         return id;
