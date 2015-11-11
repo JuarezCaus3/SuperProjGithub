@@ -34,6 +34,24 @@ public class AdministratorManager {
     private EventManagerDTO newEventManager;
     private UIComponent component;
     private UserDTO currentUser;
+    private String username,pass;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+    
     
         public AdministratorManager() {
             
@@ -118,5 +136,12 @@ public class AdministratorManager {
     public void setComponent(UIComponent component) {
         this.component = component;
     } 
+    
+    
+    //to implement
+    public String loginUser(){
+        
+        return "";    
+    }
     
 }

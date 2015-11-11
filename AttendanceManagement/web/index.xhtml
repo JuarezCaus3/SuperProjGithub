@@ -12,18 +12,19 @@
         <h:form>
          <h:panelGrid columns="3">
           <p>Username:
-              <h:inputText value="" id="username"></h:inputText> 
+              <h:inputText value="#{administratorManager.username}" id="username"></h:inputText> 
               <h:message for="username" /></p>
            
           <p>Password:
-              <h:inputSecret value="" required="true" requiredMessage="*Falta a sua password" id="password"></h:inputSecret>
+              <h:inputSecret value="#{administratorManager.pass}" required="true" requiredMessage="*Falta a sua password" id="password"></h:inputSecret>
               <h:message for="password" /></p>
              
              </h:panelGrid>
-=
-        </h:form>
+
         
-    <h:commandButton  id="go" value="Login" action=""/>
+    <h:commandButton  id="go" value="Login" action="#{administratorManager.loginUser}"/>
+    
+        </h:form>
     </h:body>
 </html>
 
