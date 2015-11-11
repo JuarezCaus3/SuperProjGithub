@@ -153,4 +153,9 @@ public class AdministratorManager {
         return "";    
     }
     
+    public String logoutUser(){
+        currentUser=null;
+        return "index?faces-redirect=true";
+    }
+    
 }
