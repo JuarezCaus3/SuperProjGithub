@@ -23,6 +23,9 @@ public class Administrator extends User implements Serializable {
         super(id, name, password, email);
     }
     
-    
+      @Override
+        public String getUserType(){
+         return "Admin";
+    }
     
 }
