@@ -129,6 +129,8 @@ public class AdministratorManager {
         }
     }
     
+    ////////////////////// Setters And Getters \\\\\\\\\\\\\\\\\\\
+    
     public EventManagerDTO getNewEventManager() {
         return newEventManager;
     }
