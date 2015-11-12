@@ -11,9 +11,9 @@
         <!--
         <h:dataTable
             
-            var="subject"
-            summary="List of all student's subjects"
-            value="#{administratorManager.currentStudentSubjects}"
+            var="event"
+            summary="List of all attendant's Events"
+            value="#{administratorManager.currentUser.getEvents}"
             rules="all"
             cellpadding="5">
 
@@ -25,7 +25,7 @@
                     <f:facet name="header">
                         <h:outputText value="Code" />
                     </f:facet>
-                    <h:outputText value="#{subject.code}" />
+                    <h:outputText value="#{event.id}" />
                 
                 </h:column>
 
