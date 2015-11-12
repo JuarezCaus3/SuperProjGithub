@@ -6,7 +6,10 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -22,6 +25,14 @@ import javax.persistence.Table;
     query = "SELECT a FROM Attendant a ORDER BY a.id")})
 public class Attendant extends User implements Serializable {
 
+      @JoinTable(name = "SUBJECT_ATTENDANT",
+            joinColumns
+            = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "SUBJECT_ID"),
+            inverseJoinColumns
+            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ATTENDANT_ID"))
+    private List<Subject> subjects;
+    
+    
     protected Attendant() {
     }
 
@@ -32,6 +43,12 @@ public class Attendant extends User implements Serializable {
     @Override
     public String toString() {
         return "Attendant{" + "username=" + id + ", password=" + password + ", name=" + name + ", email=" + email + '}';
+    }
+    
+    
+    @Override
+  public String getUserType(){
+    return "Attendant";
     }
     
 }

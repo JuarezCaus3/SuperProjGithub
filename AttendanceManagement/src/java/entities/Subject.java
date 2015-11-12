@@ -34,6 +34,7 @@ public class Subject implements Serializable {
     @NotNull
     private String name;
     
+    
         @ManyToMany(mappedBy = "subjects")
     private  List<EventManager> managers;
     
