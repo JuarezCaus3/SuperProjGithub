@@ -75,6 +75,7 @@ public class AdministratorManager {
                     newAttendant.getPassword(),
                     newAttendant.getName(),
                     newAttendant.getEmail());
+            newAttendant.reset();
             return "index?faces-redirect=true";
         } catch (Exception e) {
            System.err.println("Error: " + e.getMessage());
