@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -25,6 +26,7 @@ import javax.persistence.Table;
     query = "SELECT a FROM Attendant a ORDER BY a.id")})
 public class Attendant extends User implements Serializable {
 
+      @ManyToMany
       @JoinTable(name = "SUBJECT_ATTENDANT",
             joinColumns
             = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "SUBJECT_ID"),

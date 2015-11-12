@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -35,12 +37,13 @@ public class Event implements Serializable {
     @JoinColumn(name = "SUBJECT_ID")
     @NotNull (message="A Event must be related to a subject")
     private Subject subject;
-        
+
     @NotNull    
     private String name;
     @NotNull
     private String room;
     @NotNull
+     @Temporal(TemporalType.DATE)
     private Date date;
     @NotNull
     private int hour;
@@ -53,6 +56,7 @@ public class Event implements Serializable {
         this.id = id;
         this.name = name;
         this.room = room;
+      
         this.date = date;
         this.hour = hour;
         this.week = week;
