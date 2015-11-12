@@ -93,16 +93,6 @@ public class AdministratorManager {
         }
     }
        
-       
-       /////////////////// Getter Ans Setters \\\\\\\\\\\\\\\\\
-       
-    public AttendantDTO getNewAttendant() {
-        return newAttendant;
-    }
-
-    public void setNewAttendant(AttendantDTO newAttendant) {
-        this.newAttendant = newAttendant;
-    }
     
     //EventManager
     
@@ -130,6 +120,14 @@ public class AdministratorManager {
     }
     
     ////////////////////// Setters And Getters \\\\\\\\\\\\\\\\\\\
+    
+        public AttendantDTO getNewAttendant() {
+        return newAttendant;
+    }
+
+    public void setNewAttendant(AttendantDTO newAttendant) {
+        this.newAttendant = newAttendant;
+    }
     
     public EventManagerDTO getNewEventManager() {
         return newEventManager;
