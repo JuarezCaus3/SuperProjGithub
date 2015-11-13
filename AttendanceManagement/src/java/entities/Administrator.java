@@ -7,12 +7,20 @@ package entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  *
  * @author David
  */
 @Entity
+@Table(name = "ADMINISTRATORS")
+@NamedQueries({
+    @NamedQuery(name = "getAllAdministrators",
+    query = "SELECT c FROM Event c ORDER BY c.id"),
+    })
 public class Administrator extends User implements Serializable {
 
 

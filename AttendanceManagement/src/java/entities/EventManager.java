@@ -12,13 +12,21 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author David
  */
 @Entity
+@Table(name = "MANAGERS")
+@NamedQueries({
+    @NamedQuery(name = "getAllManagers",
+    query = "SELECT c FROM Event c ORDER BY c.id"),
+    })
 public class EventManager extends User implements Serializable {
 
     @ManyToMany

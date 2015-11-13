@@ -32,8 +32,6 @@ public class AdministratorManager {
     private EventManagerBean eventManagerBean;
     @EJB
     private EventBean eventBean;
-    
-    
     private AttendantDTO newAttendant;
     private EventManagerDTO newEventManager;
     private EventDTO newEvent;
