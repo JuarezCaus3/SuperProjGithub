@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Attendant Management</title>
+    </h:head>
+    <h:body>
+     <h:panelGrid columns="3">
+        <h:dataTable
+            var="at"
+            summary="List of all Attendants"
+            value="#{administratorManager.allAttendants}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="Attendants" />
+            </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID" />
+                    </f:facet>
+                    <h:outputText value="#{at.id}" />
+                  
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{at.name}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email" />
+                    </f:facet>
+                    <h:outputText value="#{at.email}" />
+                </h:column>  
+            
+                        <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeUser}">
+                        <f:param name="studentUsername" id="userUsername" value="#{at.username}" />
+                    </h:commandLink>
+                </h:form>
+ </h:column> 
+        </h:dataTable>
+         
+           <h:dataTable
+            var="at"
+            summary="List of all Event Managers"
+            value="#{administratorManager.allEventManagers}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="EventManagers" />
+            </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID" />
+                    </f:facet>
+                    <h:outputText value="#{at.id}" />
+                  
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{at.name}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email" />
+                    </f:facet>
+                    <h:outputText value="#{at.email}" />
+                </h:column>    
+                       <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeUser}">
+                        <f:param name="UserUsername" id="UsertUsername" value="#{at.username}" />
+                    </h:commandLink>
+                </h:form>
+ </h:column> 
+        </h:dataTable>
+         
+           <h:dataTable
+            var="at"
+            summary="List of all Admins"
+            value="#{administratorManager.getAllAdmins}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="admins" />
+            </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID" />
+                    </f:facet>
+                    <h:outputText value="#{at.id}" />
+                  
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{at.name}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email" />
+                    </f:facet>
+                    <h:outputText value="#{at.email}" />
+                </h:column>    
+               <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeUser}">
+                        <f:param name="studentUsername" id="studentUsername" value="#{at.username}" />
+                    </h:commandLink>
+                </h:form>
+ </h:column> 
+        </h:dataTable>
+         
+ </h:panelGrid >  
+        <br/>
+
+        <h:form>                  
+            <h:commandLink
+                id="return"
+                value="Return"
+                action="index?faces-redirect=true" />
+        </h:form>
+
+        <h:messages errorStyle="color: red" />        
+        
+    </h:body>
+</html>
+
