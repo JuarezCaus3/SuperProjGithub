@@ -7,6 +7,7 @@ package ejbs;
 
 import dto.EventDTO;
 import entities.Event;
+import entities.EventManager;
 import entities.Subject;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,10 +27,11 @@ public class EventBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(int id, String name, String room, Date date, int hour, int week, int subject_code) {
+    public void create(int id, String name, String room, Date date, int hour, int week, int subject_code, int manager_code) {
         try {
             Subject subject = em.find(Subject.class, subject_code);
-            em.persist(new Event(id, name, room, date, hour, week, subject));
+            EventManager manager = em.find(EventManager.class, manager_code);
+            em.persist(new Event(id, name, room, date, hour, week, subject, manager));
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -38,7 +40,7 @@ public class EventBean {
     public List<EventDTO> getAll() {
         try {
             List<Event> events = (List<Event>) em.createNamedQuery("getAllEvents").getResultList();
-            return attendantsToDTOs(events);
+            return eventsToDTOs(events);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -54,7 +56,7 @@ public class EventBean {
                 event.getWeek());
     }
 
-    List<EventDTO> attendantsToDTOs(List<Event> events) {
+    List<EventDTO> eventsToDTOs(List<Event> events) {
         List<EventDTO> dtos = new ArrayList<>();
         for (Event e : events) {
             dtos.add(eventToDTO(e));

@@ -13,8 +13,7 @@ import java.util.Date;
  */
 public class EventDTO {
     
-    private int id;
-    
+    private int id;   
     private String name;
     private String room;
     private Date date;

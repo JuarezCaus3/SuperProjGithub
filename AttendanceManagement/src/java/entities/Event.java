@@ -7,9 +7,13 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -29,13 +33,7 @@ import javax.validation.constraints.NotNull;
 public class Event implements Serializable {
 
     @Id
-    private int id;
-    
-    @ManyToOne
-    @JoinColumn(name = "SUBJECT_ID")
-    @NotNull (message="A Event must be related to a subject")
-    private Subject subject;
-        
+    private int id;      
     @NotNull    
     private String name;
     @NotNull
@@ -45,11 +43,31 @@ public class Event implements Serializable {
     @NotNull
     private int hour;
     private int week;
+    
+    @ManyToOne
+    @JoinColumn(name = "SUBJECT_ID")
+    @NotNull (message="A Event must be related to a subject")
+    private Subject subject;
+    
+    @ManyToOne
+    @JoinColumn(name = "MANAGER_ID")
+    @NotNull (message="A Event must have an event manager")
+    private EventManager manager;
+    
+    @ManyToMany
+    @JoinTable(name = "ATTENDANT_EVENT",
+            joinColumns
+            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ATTENDANT_ID"),
+           inverseJoinColumns
+            = @JoinColumn(name = "EVENT_ID", referencedColumnName = "EVENTR_ID"))
+    private List<Attendant> attendants;
+    
 
     public Event() {
+        attendants = new LinkedList<>();
     }
 
-    public Event(int id, String name, String room, Date date, int hour, int week, Subject subject) {
+    public Event(int id, String name, String room, Date date, int hour, int week, Subject subject, EventManager manager) {
         this.id = id;
         this.name = name;
         this.room = room;
@@ -57,6 +75,8 @@ public class Event implements Serializable {
         this.hour = hour;
         this.week = week;
         this.subject = subject;
+        this.manager = manager;
+        attendants = new LinkedList<>();
     }    
         
     public Subject getSubject() {
@@ -115,5 +135,30 @@ public class Event implements Serializable {
     public void setWeek(int week) {
         this.week = week;
     }
+
+    public EventManager getManager() {
+        return manager;
+    }
+
+    public void setManager(EventManager manager) {
+        this.manager = manager;
+    }
+
+    public List<Attendant> getAttendants() {
+        return attendants;
+    }
+
+    public void setAttendants(List<Attendant> attendants) {
+        this.attendants = attendants;
+    }
+    
+    public void addAttendant(Attendant attendant) {
+        attendants.add(attendant);
+    }
+    
+    public void removeAttendant(Attendant attendant) {
+        attendants.remove(attendant);
+    }
+    
     
 }
