@@ -6,8 +6,12 @@
 package ejbs;
 
 import dto.EventManagerDTO;
+import entities.Attendant;
+import entities.Event;
 import entities.EventManager;
+import entities.Subject;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
@@ -33,7 +37,47 @@ public class EventManagerBean {
         }
     }
     
+public EventManager getEventManager(long id) {
+        try {
+            EventManager manager = em.find(EventManager.class, id);
+            return manager;
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
 
+    public void update(long id, String password, String name, String email) {
+        try {
+            
+            EventManager manager = em.find(EventManager.class, id);
+            if (manager == null) {
+               throw new EJBException("This manager id does not exist");
+            }
+           
+            manager.setPassword(password);
+            manager.setName(name);
+            manager.setEmail(email);
+            em.merge(manager);
+                     
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
+
+    public void remove(long id) {
+        try {
+
+            EventManager manager = em.find(EventManager.class, id);
+            if (manager == null) {
+               throw new EJBException("This manager id does not exist");
+            }
+                                
+            em.remove(manager);
+        
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
     
      public List<EventManagerDTO> getAll() {
         try {

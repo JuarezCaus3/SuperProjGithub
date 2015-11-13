@@ -34,11 +34,13 @@ public class EventManager extends User implements Serializable {
  
     protected EventManager() {
         subjects = new LinkedList<>();
+        events = new LinkedList<>();
     }
 
     public EventManager(long id, String name, String password, String email) {
         super(id, name, password, email);
         subjects = new LinkedList<>();
+        events = new LinkedList<>();
     }
 
     public List<Subject> getSubjects() {
@@ -55,6 +57,22 @@ public class EventManager extends User implements Serializable {
     
     public void removeSubject(Subject subject) {
         subjects.remove(subject);
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
+    
+    public void addEvent(Event event) {
+        events.add(event);
+    }
+    
+    public void removeEvent(Event event) {
+        events.remove(event);
     }
     
     @Override

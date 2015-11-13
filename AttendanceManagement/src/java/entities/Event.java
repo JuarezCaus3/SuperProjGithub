@@ -91,7 +91,6 @@ public class Event implements Serializable {
     public void setSubject(Subject subject) {
         this.subject = subject;
     }
-
     
     public int getId() {
         return id;

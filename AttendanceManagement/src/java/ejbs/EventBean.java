@@ -6,6 +6,7 @@
 package ejbs;
 
 import dto.EventDTO;
+import entities.Attendant;
 import entities.Event;
 import entities.EventManager;
 import entities.Subject;
@@ -41,6 +42,70 @@ public class EventBean {
         try {
             List<Event> events = (List<Event>) em.createNamedQuery("getAllEvents").getResultList();
             return eventsToDTOs(events);
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
+    
+    public Event getEvent(int id) {
+        try {
+            Event event = em.find(Event.class, id);
+            return event;
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
+
+    public void update(int id, String name, String room, Date date, int hour, int week, int subject_code, long manager_code) {
+        try {
+            
+            Subject subject = em.find(Subject.class, subject_code);
+            if (subject == null) {
+                throw new EJBException("There is no subject with that code.");
+            }
+            EventManager manager = em.find(EventManager.class, manager_code);
+            if (manager == null) {
+                throw new EJBException("There is no manager with that code.");
+            }
+            Event event = em.find(Event.class, id);
+            if (event == null) {
+               throw new EJBException("This event id does not exist");
+            }
+           
+            event.setName(name);
+            event.setRoom(room);
+            event.setDate(date);
+            event.setHour(hour);
+            event.setWeek(week);
+            event.getSubject().removeEvent(event);
+            event.setSubject(subject);
+            subject.addEvent(event);
+            event.getManager().removeEvent(event);
+            manager.addEvent(event);
+            em.merge(event);
+                     
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
+
+    public void remove(long id) {
+        try {
+
+            Event event = em.find(Event.class, id);
+            if (event == null) {
+               throw new EJBException("This event id does not exist");
+            }
+            
+            event.getManager().removeEvent(event);
+            event.getSubject().removeEvent(event);
+            
+            for (Attendant attendant : event.getAttendants()) {
+                attendant.removeEvent(event);
+            }
+            
+            em.remove(event);
+        
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }

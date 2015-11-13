@@ -48,7 +48,7 @@ public class AttendantBean {
         }
     }
      
-    public Attendant getStudent(long id) {
+    public Attendant getAttendant(long id) {
         try {
             Attendant attendant = em.find(Attendant.class, id);
             return attendant;
