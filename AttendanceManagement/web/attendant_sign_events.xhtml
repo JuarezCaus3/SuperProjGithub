@@ -10,7 +10,7 @@
     <h:body>
         
         
-        <!--
+     
         <h:dataTable
             
             var="event"
@@ -20,7 +20,7 @@
             cellpadding="5">
 
             <f:facet name="header">
-                <h:outputText value="Student's Subjects" />
+                <h:outputText value="Attendants Events" />
             </f:facet>
 
                 <h:column>
@@ -35,25 +35,25 @@
                     <f:facet name="header">
                         <h:outputText value="Name" />
                     </f:facet>
-                    <h:outputText value="#{subject.name}" />
+                    <h:outputText value="#{event.name}" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Course Year" />
+                        <h:outputText value="Room" />
                     </f:facet>
-                    <h:outputText value="#{subject.courseYear}" />
+                    <h:outputText value="#{event.room}" />
                 </h:column>                        
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Scholar Year" />
+                        <h:outputText value="Date" />
                     </f:facet>
-                    <h:outputText value="#{subject.scholarYear}" />
+                    <h:outputText value="#{event.date}" />
                 </h:column>                        
 
         </h:dataTable>
-    -->
+
         
     </h:body>
     
