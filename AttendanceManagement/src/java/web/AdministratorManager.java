@@ -6,9 +6,11 @@
 package web;
 
 import dto.AttendantDTO;
+import dto.EventDTO;
 import dto.EventManagerDTO;
 import dto.UserDTO;
 import ejbs.AttendantBean;
+import ejbs.EventBean;
 import ejbs.EventManagerBean;
 import java.util.List;
 import javax.ejb.EJB;
@@ -28,34 +30,22 @@ public class AdministratorManager {
     private AttendantBean attendantBean;  
     @EJB
     private EventManagerBean eventManagerBean;
+    @EJB
+    private EventBean eventBean;
+    
     
     private AttendantDTO newAttendant;
     private EventManagerDTO newEventManager;
+    private EventDTO newEvent;
     private UIComponent component;
     private UserDTO currentUser;
     private String username,pass;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-    
-    
+        
         public AdministratorManager() {
             
         newAttendant = new AttendantDTO();
         newEventManager = new EventManagerDTO();
+        newEvent = new EventDTO();
 
     }
 
@@ -119,9 +109,39 @@ public class AdministratorManager {
         }
     }
     
+    //////////////////////// EVENTS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    
+    public String createEvent(){
+        try{
+            eventBean.create(
+                    newEvent.getId(),
+                    newEvent.getName(),
+                    newEvent.getRoom(),
+                    newEvent.getDate(),
+                    newEvent.getHour(),
+                    newEvent.getWeek(),
+                    newEvent.getSubject(),
+                    newEvent.getManager()
+            );
+            return "index?faces-redirect=true";
+        } catch (Exception e) {
+            System.err.println("Error: "+ e.getMessage());
+            return null;
+        }
+    }
+    
+    public List<EventDTO> getAllEvents(){
+        try {
+            return eventBean.getAll();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());            
+            return null;
+        }
+    }
+    
     ////////////////////// Setters And Getters \\\\\\\\\\\\\\\\\\\
     
-        public AttendantDTO getNewAttendant() {
+    public AttendantDTO getNewAttendant() {
         return newAttendant;
     }
 
@@ -135,6 +155,22 @@ public class AdministratorManager {
 
     public void setNewEventManager(EventManagerDTO newEventManager) {
         this.newEventManager = newEventManager;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
     
     public UIComponent getComponent() {

@@ -27,7 +27,7 @@ public class EventBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(int id, String name, String room, Date date, int hour, int week, int subject_code, int manager_code) {
+    public void create(int id, String name, String room, Date date, int hour, int week, int subject_code, long manager_code) {
         try {
             Subject subject = em.find(Subject.class, subject_code);
             EventManager manager = em.find(EventManager.class, manager_code);
@@ -53,7 +53,9 @@ public class EventBean {
                 event.getRoom(),
                 event.getDate(),
                 event.getHour(),
-                event.getWeek());
+                event.getWeek(),
+                event.getSubject().getId(),
+                event.getManager().getId());
     }
 
     List<EventDTO> eventsToDTOs(List<Event> events) {

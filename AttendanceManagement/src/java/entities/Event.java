@@ -37,18 +37,7 @@ import javax.validation.constraints.NotNull;
 public class Event implements Serializable {
 
     @Id
-<<<<<<< HEAD
-    @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int id;
-    
-    @ManyToOne
-    @JoinColumn(name = "SUBJECT_ID")
-    @NotNull (message="A Event must be related to a subject")
-    private Subject subject;
-
-=======
-    private int id;      
->>>>>>> cb692f7e22b6cfd2bf2b857d63a587b991b1770d
     @NotNull    
     private String name;
     @NotNull
@@ -86,8 +75,7 @@ public class Event implements Serializable {
     public Event(int id, String name, String room, Date date, int hour, int week, Subject subject, EventManager manager) {
         this.id = id;
         this.name = name;
-        this.room = room;
-      
+        this.room = room;      
         this.date = date;
         this.hour = hour;
         this.week = week;

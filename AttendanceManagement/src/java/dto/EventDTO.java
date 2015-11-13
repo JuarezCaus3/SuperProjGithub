@@ -19,17 +19,21 @@ public class EventDTO {
     private Date date;
     private int hour;
     private int week;
+    private int subject_code;
+    private long manager_code;
 
     public EventDTO() {
     }
 
-    public EventDTO(int id, String name, String room, Date date, int hour, int week) {
+    public EventDTO(int id, String name, String room, Date date, int hour, int week, int subject_code, long manager_code) {
         this.id = id;
         this.name = name;
         this.room = room;
         this.date = date;
         this.hour = hour;
         this.week = week;
+        this.subject_code = subject_code;
+        this.manager_code = manager_code;
     }
     
     public void reset() {
@@ -88,4 +92,22 @@ public class EventDTO {
     public void setWeek(int week) {
         this.week = week;
     }
+
+    public int getSubject() {
+        return subject_code;
+    }
+
+    public void setSubject(int subject_code) {
+        this.subject_code = subject_code;
+    }
+
+    public long getManager() {
+        return manager_code;
+    }
+
+    public void setManager(long manager_code) {
+        this.manager_code = manager_code;
+    }
+    
+    
 }
