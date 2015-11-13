@@ -35,7 +35,7 @@ public class Subject implements Serializable {
     private String name;
     
     
-        @ManyToMany(mappedBy = "subjects")
+    @ManyToMany(mappedBy = "subjects")
     private  List<EventManager> managers;
     
     @ManyToMany (mappedBy ="subjects")
@@ -120,28 +120,6 @@ public class Subject implements Serializable {
 
     public void removeEvent(Event event) {
         events.remove(event);
-    }
-    
-    
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (int) id;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Subject)) {
-            return false;
-        }
-        Subject other = (Subject) object;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
     }
 
     @Override

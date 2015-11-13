@@ -6,6 +6,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -34,13 +35,54 @@ public class Attendant extends User implements Serializable {
             = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ATTENDANT_ID"))
     private List<Subject> subjects;
     
+    @ManyToMany (mappedBy ="attendants")  
+    private List<Event> events;
+    
     
     protected Attendant() {
+        subjects = new LinkedList<>();
+        events = new LinkedList<>();
     }
 
     public Attendant(long id, String name, String password, String email) {
         super(id, name, password, email);
+        subjects = new LinkedList<>();
+        events = new LinkedList<>();
     }
+
+    public List<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
+    }
+    
+    public void addSubject(Subject subject) {
+        subjects.add(subject);
+    }
+    
+    public void removeSubject(Subject subject) {
+        subjects.remove(subject);
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
+    
+    public void addEvent(Event event) {
+        events.add(event);
+    }
+    
+    public void removeEvent(Event event) {
+        events.remove(event);
+    }
+    
+    
     
     @Override
     public String toString() {
