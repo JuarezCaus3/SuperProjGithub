@@ -601,18 +601,20 @@ public class AdministratorManager {
             currentAttendant = null;
             currentEventManager = null;
             currentAdministrator = administratorBean.getAdministrator(ola1);
+             valid="";
             return "admin_home?faces-redirect=true"; }else{
           if (loggedUser.getUserType().compareTo("Attendant")==0) { 
               currentAdministrator = null;
               currentEventManager = null;
               currentAttendant = attendantBean.getAttendant(ola1);
               System.out.println("att: " + currentAttendant);
+               valid="";
             return "attendant_home?faces-redirect=true"; } else{
           if (loggedUser.getUserType().compareTo("manager")==0) { 
                 currentAdministrator = null;
                 currentAttendant = null;
                 currentEventManager = eventManagerBean.getEventManager(ola1);
-
+ valid="";
                 return "manager_home?faces-redirect=true"; 
 
             } 
