@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Attendance Management</title>
+    </h:head>
+    <h:body>
+         <h:dataTable
+            var="ae"
+            summary="List of Events"
+            value="#{administratorManager.allEvents}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="Events" />
+            </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID" />
+                    </f:facet>
+                    <h:outputText value="#{ae.id}" />
+                  
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{ae.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Subject" />
+                    </f:facet>
+                 <h:outputText value="#{ae.subject}" />
+                </h:column>  
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Room" />
+                    </f:facet>
+                    <h:outputText value="#{ae.room}" />
+                </h:column>  
+             
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hora" />
+                    </f:facet>
+                    <h:outputText value="#{ae.hora}" />
+                </h:column>  
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Week" />
+                    </f:facet>
+                    <h:outputText value="#{ae.week}" />
+                </h:column>  
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Subject" />
+                    </f:facet>
+                 <h:outputText value="#{ae.subject}" />
+                </h:column>  
+            
+                <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                    
+                    
+                <h:form>
+                    <h:commandLink value="Details" action="admin_event_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentEvent}" value="#{ae}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Update" action="admin_event_list?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.updateEvent}" value="#{ae}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeEvent}">
+                        <f:param name="attendantId" id="eventID" value="#{ae.id}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Attendants" action="admin_event_attendants?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentEvent}" value="#{ae}" />
+                    </h:commandLink>
+                    
+                </h:form>
+                </h:column> 
+        </h:dataTable>
+          
+
+    </h:body>
+</html>
+

@@ -50,11 +50,23 @@
                         <h:outputText value="Date" />
                     </f:facet>
                     <h:outputText value="#{event.date}" />
-                </h:column>                        
+                </h:column>    
+            
+                            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="CheckIn" actionListener="#{administratorManager.checkInAttendant}">
+                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>
 
-        </h:dataTable>
+        </h:dataTable>    
 
-        
+        <br/>
+
     </h:body>
     
 </html>
