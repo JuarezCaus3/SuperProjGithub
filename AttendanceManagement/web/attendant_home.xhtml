@@ -11,15 +11,15 @@
                 <h:outputLabel for="username" value="Username: " />
                 <h:outputText 
                     id="name"
-                    value="#{administratorManager.currentUser.name}"/>   
+                    value="#{administratorManager.loggedUser.name}"/>   
                 <h:outputLabel for="Id" value="ID: " />
                 <h:outputText
                     id="id"  
-                    value="#{administratorManager.currentUser.id}"/>                     
+                    value="#{administratorManager.loggedUser.id}"/>                     
                 <h:outputLabel for="email" value="Email: " />
                 <h:outputText
                     id="email"            
-                    value="#{administratorManager.currentUser.email}" /> 
+                    value="#{administratorManager.loggedUser.email}" /> 
             </h:panelGrid >                       
 
         </h:form>

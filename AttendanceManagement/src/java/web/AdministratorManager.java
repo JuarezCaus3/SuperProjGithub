@@ -67,6 +67,14 @@ public class AdministratorManager {
     private String id;
     
     private User loggedUser;
+
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
+    }
         
         public AdministratorManager() {
             
@@ -560,7 +568,7 @@ public class AdministratorManager {
         if (loggedUser.getUserType().compareTo("Admin")==0) { 
             return "home?faces-redirect=true"; }else{
           if (loggedUser.getUserType().compareTo("Attendant")==0) { 
-            return "home?faces-redirect=true"; } else{
+            return "attendant_home?faces-redirect=true"; } else{
             if (loggedUser.getUserType().compareTo("manager")==0) { 
             return "home?faces-redirect=true"; } }}
         }
