@@ -17,7 +17,7 @@ public class EventDTO {
     private String name;
     private String room;
     private Date date;
-    private int hour;
+    private int hora;
     private int week;
     private int subject_code;
     private long manager_code;
@@ -25,12 +25,12 @@ public class EventDTO {
     public EventDTO() {
     }
 
-    public EventDTO(int id, String name, String room, Date date, int hour, int week, int subject_code, long manager_code) {
+    public EventDTO(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code) {
         this.id = id;
         this.name = name;
         this.room = room;
         this.date = date;
-        this.hour = hour;
+        this.hora = hora;
         this.week = week;
         this.subject_code = subject_code;
         this.manager_code = manager_code;
@@ -41,8 +41,8 @@ public class EventDTO {
         setName(null);
         setRoom(null);
         setDate(null);
-        setHour(-1);
-        setWeek(-1);
+        setHora(1);
+        setWeek(1);
     }   
     
     public int getId() {
@@ -77,12 +77,12 @@ public class EventDTO {
         this.date = date;
     }
 
-    public int getHour() {
-        return hour;
+    public int getHora() {
+        return hora;
     }
 
-    public void setHour(int hour) {
-        this.hour = hour;
+    public void setHora(int hora) {
+        this.hora = hora;
     }
 
     public int getWeek() {

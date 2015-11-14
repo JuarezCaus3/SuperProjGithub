@@ -77,7 +77,7 @@ public class User implements Serializable {
         this.email = email;
     }
     
-        public String getUserType(){
+    public String getUserType(){
     return "User";
     }
 

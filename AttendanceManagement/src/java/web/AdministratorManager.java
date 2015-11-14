@@ -236,7 +236,7 @@ public class AdministratorManager {
                     newEvent.getName(),
                     newEvent.getRoom(),
                     newEvent.getDate(),
-                    newEvent.getHour(),
+                    newEvent.getHora(),
                     newEvent.getWeek(),
                     newEvent.getSubject(),
                     newEvent.getManager()
@@ -550,7 +550,7 @@ public class AdministratorManager {
     //to implement
     public String loginUser(){
         long ola1 = Long.parseLong(id);
-       boolean ola=userBean.verifyPass(ola1, pass);
+        boolean ola=userBean.verifyPass(ola1, pass);
        
         if (!ola){ 
             valid="axxx";

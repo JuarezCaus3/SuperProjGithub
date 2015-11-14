@@ -30,12 +30,14 @@ public class UserBean {
 
       public boolean verifyPass(long id, String pass){
       try {
-            User user = em.find(Attendant.class, id);
-            if(user == null){
-                user = em.find(Administrator.class, id);
-                     if(user == null){
-                        user = em.find(EventManager.class, id);
-                     if(user==null){return false;}
+            Attendant attendant = em.find(Attendant.class, id);
+            if(attendant == null){
+                
+                Administrator admin = em.find(Administrator.class, id);
+                     if(admin == null){
+                         
+                        EventManager manager = em.find(EventManager.class, id);
+                     if(manager==null){return false;}
                      }
             }
            return true;
@@ -49,14 +51,14 @@ public class UserBean {
 
     public User getUser(long id) {
         try {
-            User user = em.find(Administrator.class, id);
-            if(user != null){
-            return user;}
-             user = em.find(Attendant.class, id);
-             if(user != null){
-            return user;}
-              user = em.find(EventManager.class, id);
-                return user;
+            Attendant attendant = em.find(Attendant.class, id);
+            if(attendant != null){
+            return attendant;}
+             Administrator admin = em.find(Administrator.class, id);
+             if(admin != null){
+            return admin;}
+              EventManager manager = em.find(EventManager.class, id);
+                return manager;
                 
         } catch (Exception e) {
             throw new EJBException(e.getMessage());

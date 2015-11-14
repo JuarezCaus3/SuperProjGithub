@@ -30,11 +30,11 @@ import javax.persistence.Table;
 public class EventManager extends User implements Serializable {
 
     @ManyToMany
-    @JoinTable(name = "SUBJECT_MANAGER",
+    @JoinTable(name = "MANAGER_SUBJECT",
             joinColumns
-            = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "SUBJECT_ID"),
+            = @JoinColumn(name = "MANAGER_ID", referencedColumnName = "ID"),
            inverseJoinColumns
-            = @JoinColumn(name = "MANAGER_ID", referencedColumnName = "MANAGER_ID"))
+            = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "ID"))
     private List<Subject> subjects;
     
     @OneToMany(mappedBy = "manager")

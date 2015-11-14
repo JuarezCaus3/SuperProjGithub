@@ -28,11 +28,11 @@ import javax.persistence.Table;
 public class Attendant extends User implements Serializable {
 
       @ManyToMany
-      @JoinTable(name = "SUBJECT_ATTENDANT",
+      @JoinTable(name = "ATTENDANT_SUBJECT",
             joinColumns
-            = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "SUBJECT_ID"),
+            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ID"),
             inverseJoinColumns
-            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ATTENDANT_ID"))
+            = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "ID"))
     private List<Subject> subjects;
     
     @ManyToMany (mappedBy ="attendants")  

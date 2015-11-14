@@ -44,7 +44,7 @@ public class Event implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
     @NotNull
-    private int hour;
+    private int hora;
     private int week;
     
     @ManyToOne
@@ -58,11 +58,11 @@ public class Event implements Serializable {
     private EventManager manager;
     
     @ManyToMany
-    @JoinTable(name = "ATTENDANT_EVENT",
+    @JoinTable(name = "EVENT_ATTENDANT",
             joinColumns
-            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ATTENDANT_ID"),
+            = @JoinColumn(name = "EVENT_ID", referencedColumnName = "ID"),
            inverseJoinColumns
-            = @JoinColumn(name = "EVENT_ID", referencedColumnName = "EVENTR_ID"))
+            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ID"))
     private List<Attendant> attendants;
     
 
@@ -70,12 +70,12 @@ public class Event implements Serializable {
         attendants = new LinkedList<>();
     }
 
-    public Event(int id, String name, String room, Date date, int hour, int week, Subject subject, EventManager manager) {
+    public Event(int id, String name, String room, Date date, int hora, int week, Subject subject, EventManager manager) {
         this.id = id;
         this.name = name;
         this.room = room;      
         this.date = date;
-        this.hour = hour;
+        this.hora = hora;
         this.week = week;
         this.subject = subject;
         this.manager = manager;
@@ -122,12 +122,12 @@ public class Event implements Serializable {
         this.date = date;
     }
 
-    public int getHour() {
-        return hour;
+    public int getHora() {
+        return hora;
     }
 
-    public void setHour(int hour) {
-        this.hour = hour;
+    public void setHora(int hora) {
+        this.hora = hora;
     }
 
     public int getWeek() {

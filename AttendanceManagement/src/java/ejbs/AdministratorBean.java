@@ -6,9 +6,7 @@
 package ejbs;
 
 import dto.AdministratorDTO;
-import dto.EventManagerDTO;
 import entities.Administrator;
-import entities.EventManager;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJBException;

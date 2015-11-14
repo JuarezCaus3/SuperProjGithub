@@ -28,11 +28,11 @@ public class EventBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(int id, String name, String room, Date date, int hour, int week, int subject_code, long manager_code) {
+    public void create(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code) {
         try {
             Subject subject = em.find(Subject.class, subject_code);
             EventManager manager = em.find(EventManager.class, manager_code);
-            em.persist(new Event(id, name, room, date, hour, week, subject, manager));
+            em.persist(new Event(id, name, room, date, hora, week, subject, manager));
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -56,7 +56,7 @@ public class EventBean {
         }
     }
 
-    public void update(int id, String name, String room, Date date, int hour, int week, int subject_code, long manager_code) {
+    public void update(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code) {
         try {
             
             Subject subject = em.find(Subject.class, subject_code);
@@ -75,7 +75,7 @@ public class EventBean {
             event.setName(name);
             event.setRoom(room);
             event.setDate(date);
-            event.setHour(hour);
+            event.setHora(hora);
             event.setWeek(week);
             event.getSubject().removeEvent(event);
             event.setSubject(subject);
@@ -145,7 +145,7 @@ public class EventBean {
                 event.getName(),
                 event.getRoom(),
                 event.getDate(),
-                event.getHour(),
+                event.getHora(),
                 event.getWeek(),
                 event.getSubject().getId(),
                 event.getManager().getId());
