@@ -93,12 +93,11 @@ and open the template in the editor.
      
                 <br></br>
 
-                <h:commandButton
-                    id="submit"
-                    value="Create"
-                    binding="#{administratorManager.component}" 
-                    action="#{administratorManager.updateEvent}" />
-                <h:message for="submit" style="color: red"/>
-        
+             <h:form>                  
+            <h:commandLink
+                id="return"
+                value="Return"
+                action="admin_event_list?faces-redirect=true" />
+        </h:form>
     </body>
 </html>

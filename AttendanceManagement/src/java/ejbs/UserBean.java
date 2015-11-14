@@ -5,7 +5,6 @@
  */
 package ejbs;
 
-import dto.AdministratorDTO;
 import dto.UserDTO;
 import entities.Administrator;
 import entities.Attendant;
@@ -65,7 +64,7 @@ public class UserBean {
         }
     }
 
-    public void update(long id, String password, String name, String email) {
+    public void update(long id, String name, String password, String email) {
         try {
             
            User user = em.find(User.class, id);
@@ -73,8 +72,8 @@ public class UserBean {
                throw new EJBException("This administrator id does not exist");
             }
            
-            user.setPassword(password);
             user.setName(name);
+            user.setPassword(password);
             user.setEmail(email);
             em.merge(user);
                      

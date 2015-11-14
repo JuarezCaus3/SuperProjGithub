@@ -26,10 +26,10 @@ public class AttendantBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(long id, String password, String name, String email) {
+    public void create(long id, String name, String password, String email) {
         try {
-            Attendant attendant = new Attendant(id, password, name, email);
-            System.out.println(attendant.toString());
+            Attendant attendant = new Attendant(id, name, password, email);
+            System.out.println(attendant.getName());
             em.persist(attendant);
             
         } catch (Exception e) {
@@ -58,16 +58,16 @@ public class AttendantBean {
         }
     }
 
-    public void update(long id, String password, String name, String email) {
+    public void update(long id, String name, String password, String email) {
         try {
 
             Attendant attendant = em.find(Attendant.class, id);
             if (attendant == null) {
                throw new EJBException("This attendant id does not exist");
             }
-
-            attendant.setPassword(password);
+  
             attendant.setName(name);
+            attendant.setPassword(password);
             attendant.setEmail(email);
             em.merge(attendant);
                      

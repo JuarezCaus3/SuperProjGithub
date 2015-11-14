@@ -36,7 +36,7 @@
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Username" />
+                    <h:outputText value="Name" />
                 </f:facet>
                 <h:outputText value="#{attendant.id}" />
                 <!--Falta validar o formato-->
@@ -84,7 +84,7 @@
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Username" />
+                    <h:outputText value="Name" />
                 </f:facet>
                 <h:outputText value="#{attendant.id}" />
                 <!--Falta validar o formato-->
@@ -124,7 +124,7 @@
             <h:commandLink
                 id="return"
                 value="Return"
-                action="index?faces-redirect=true" />
+                action="admin_user_list?faces-redirect=true" />
         </h:form>
 
         <h:messages errorStyle="color: red" />        

@@ -116,7 +116,7 @@
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Username" />
+                    <h:outputText value="Name" />
                 </f:facet>
                 <h:outputText value="#{attendant.id}" />
                 <!--Falta validar o formato-->
@@ -164,7 +164,7 @@
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Username" />
+                    <h:outputText value="Name" />
                 </f:facet>
                 <h:outputText value="#{attendant.id}" />
                 <!--Falta validar o formato-->
@@ -200,12 +200,12 @@
 
                 <br></br>
 
-                <h:commandButton
-                    id="submit"
-                    value="Create"
-                    binding="#{administratorManager.component}" 
-                    action="#{administratorManager.updateEvent}" />
-                <h:message for="submit" style="color: red"/>
+              <h:form>                  
+            <h:commandLink
+                id="return"
+                value="Return"
+                action="manager_checkevents?faces-redirect=true" />
+        </h:form>
                              
 
         </h:form>

@@ -90,11 +90,11 @@ public class AdministratorManager {
         try {
             attendantBean.create(
                     newAttendant.getId(),
-                    newAttendant.getPassword(),
                     newAttendant.getName(),
+                    newAttendant.getPassword(),
                     newAttendant.getEmail());
             newAttendant.reset();
-            return "home?faces-redirect=true";
+            return "admin_user_list?faces-redirect=true";
         } catch (Exception e) {
            System.err.println("Error: " + e.getMessage());
            return null;
@@ -115,8 +115,8 @@ public class AdministratorManager {
         try {
             attendantBean.update(
                     currentAttendant.getId(),
-                    currentAttendant.getPassword(),
                     currentAttendant.getName(),
+                    currentAttendant.getPassword(),
                     currentAttendant.getEmail());
             return "home?faces-redirect=true";
             
@@ -129,10 +129,10 @@ public class AdministratorManager {
     public String updateUser() {
         try {
             userBean.update(
-                   currentUser.getId(),
-                   currentUser.getPassword(),
+                    currentUser.getId(),
                     currentUser.getName(),
-                   currentUser.getEmail());
+                    currentUser.getPassword(),
+                    currentUser.getEmail());
             return "home?faces-redirect=true";
             
         } catch (Exception e) {
@@ -179,9 +179,10 @@ public class AdministratorManager {
         try{
             eventManagerBean.create(
                     newEventManager.getId(),
-                    newEventManager.getPassword(),
                     newEventManager.getName(),
+                    newEventManager.getPassword(),
                     newEventManager.getEmail());
+            newEventManager.reset();
             return "home?faces-redirect=true";
         } catch (Exception e) {
             System.err.println("Error: "+ e.getMessage());
@@ -202,8 +203,8 @@ public class AdministratorManager {
         try {
             eventManagerBean.update(
                     currentEventManager.getId(),
-                    currentEventManager.getPassword(),
                     currentEventManager.getName(),
+                    currentEventManager.getPassword(),
                     currentEventManager.getEmail());
             return "home?faces-redirect=true";
             
@@ -415,9 +416,10 @@ public class AdministratorManager {
         try{
             administratorBean.create(
                     newAdministrator.getId(),
-                    newAdministrator.getPassword(),
                     newAdministrator.getName(),
+                    newAdministrator.getPassword(),
                     newAdministrator.getEmail());
+            newAdministrator.reset();
             return "home?faces-redirect=true";
         } catch (Exception e) {
             System.err.println("Error: "+ e.getMessage());
@@ -437,10 +439,10 @@ public class AdministratorManager {
     public String updateAdministrator() {
         try {
             administratorBean.update(
-                    newAdministrator.getId(),
-                    newAdministrator.getPassword(),
-                    newAdministrator.getName(),
-                    newAdministrator.getEmail());
+                    currentAdministrator.getId(),
+                    currentAdministrator.getName(),
+                    currentAdministrator.getPassword(),
+                    currentAdministrator.getEmail());
             return "home?faces-redirect=true";
             
         } catch (Exception e) {

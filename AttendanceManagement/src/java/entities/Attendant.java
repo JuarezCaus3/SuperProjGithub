@@ -86,7 +86,7 @@ public class Attendant extends User implements Serializable {
     
     @Override
     public String toString() {
-        return "Attendant{" + "username=" + id + ", password=" + password + ", name=" + name + ", email=" + email + '}';
+        return "Attendant{" + "id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + '}';
     }
     
     
