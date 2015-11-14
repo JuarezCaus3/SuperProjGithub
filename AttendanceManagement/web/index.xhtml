@@ -12,8 +12,8 @@
         
         <h:form>
          <h:panelGrid columns="3">
-          <p>Username:
-              <h:inputText value="#{administratorManager.username}" id="username"></h:inputText> 
+          <p>ID:
+              <h:inputText value="#{administratorManager.id}" id="id" ><f:convertNumber/></h:inputText> 
 
               <h:message for="username" /></p>
            
@@ -23,9 +23,9 @@
              
              </h:panelGrid>
 
-
+            <h:outputText value="#{administratorManager.valid}" style="color:red" ></h:outputText>
         
-    <h:commandButton  id="go" value="Login" action="#{administratorManager.loginUser}"/>
+    <h:commandButton  id="login" value="Login" action="#{administratorManager.loginUser}"/>
     
         </h:form>
 
