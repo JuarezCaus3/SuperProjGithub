@@ -74,6 +74,7 @@ public class AdministratorManager {
         newEventManager = new EventManagerDTO();
         newEvent = new EventDTO();
         newSubject = new SubjectDTO();
+        valid="";
 
     }
 
@@ -591,7 +592,7 @@ public class AdministratorManager {
         boolean ola=userBean.verifyPass(ola1, pass);
        
         if (!ola){ 
-            valid="axxx";
+            valid="Invalid Login!";
             return "index?faces-redirect=true";}
         else{
         loggedUser = userBean.getUser(ola1);
@@ -618,12 +619,13 @@ public class AdministratorManager {
           }
         }
         }
-             valid=loggedUser.getUserType();
+             valid="";
           return "index?faces-redirect=true";
     }
     
     public String logoutUser(){
         loggedUser=null;
+        valid="";
         return "index?faces-redirect=true";
     }
     
