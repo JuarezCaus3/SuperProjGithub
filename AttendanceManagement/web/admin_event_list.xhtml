@@ -76,7 +76,7 @@
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_event_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.current}" value="#{ae}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentEvent}" value="#{ae}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Remove" actionListener="#{administratorManager.removeEvent}">
