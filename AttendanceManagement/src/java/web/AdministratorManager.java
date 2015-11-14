@@ -572,7 +572,7 @@ public class AdministratorManager {
 
               currentAttendant = attendantBean.getAttendant(ola1);
               System.out.println("att: " + currentAttendant);
-            return "home?faces-redirect=true"; } else{
+            return "attendant_home?faces-redirect=true"; } else{
           if (loggedUser.getUserType().compareTo("manager")==0) { 
                 currentEventManager = eventManagerBean.getEventManager(ola1);
                 return "home?faces-redirect=true"; 
@@ -585,7 +585,7 @@ public class AdministratorManager {
     }
     
     public String logoutUser(){
-        currentUser=null;
+        loggedUser=null;
         return "index?faces-redirect=true";
     }
     
