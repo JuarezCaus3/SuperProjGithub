@@ -55,6 +55,12 @@ and open the template in the editor.
             <h:commandLink value="New attendat" action="admin_attendants_create?faces-redirect=true"/>
         </h:form>
         
+        <h:form>
+        <h:commandLink value="Details" action="attendant_home?faces-redirect=true">
+            <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{user}" />
+        </h:commandLink>
+        </h:form>
+        
         <br/>
         <br/>
     </h:body>

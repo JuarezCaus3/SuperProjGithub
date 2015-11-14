@@ -11,24 +11,15 @@
                 <h:outputLabel for="username" value="Username: " />
                 <h:outputText 
                     id="name"
-                    value="#{administratorManager.currentAttendant.name}">
-                </h:inputText>
-
+                    value="#{administratorManager.currentUser.name}"/>   
                 <h:outputLabel for="Id" value="ID: " />
                 <h:outputText
-                    id="id"
-             
-                    value="#{administratorManager.currentAttendant.id}"/>                     
-
+                    id="id"  
+                    value="#{administratorManager.currentUser.id}"/>                     
                 <h:outputLabel for="email" value="Email: " />
-                <h:inputText
-                    id="email"
-                          
-                    value="#{administratorManager.currentAttendant.email}" >
-                </h:inputText>    
-               
-
-                
+                <h:outputText
+                    id="email"            
+                    value="#{administratorManager.currentUser.email}" /> 
             </h:panelGrid >                       
 
         </h:form>
@@ -46,7 +37,5 @@
                 value="Sign in Events"
                 action="attendant_sign_events?faces-redirect=true" />
         </h:form>
- 
-
     </h:body>
 </html>
