@@ -569,10 +569,11 @@ public class AdministratorManager {
             currentAdministrator = administratorBean.getAdministrator(ola1);
             return "home?faces-redirect=true"; }else{
           if (loggedUser.getUserType().compareTo("Attendant")==0) { 
+
               currentAttendant = attendantBean.getAttendant(ola1);
               System.out.println("att: " + currentAttendant);
             return "home?faces-redirect=true"; } else{
-            if (loggedUser.getUserType().compareTo("manager")==0) { 
+          if (loggedUser.getUserType().compareTo("manager")==0) { 
                 currentEventManager = eventManagerBean.getEventManager(ola1);
                 return "home?faces-redirect=true"; 
             } 
