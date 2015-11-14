@@ -39,9 +39,9 @@ public class UserBean {
                      if(user==null){return false;}
                      }
             }
-           return true;
-           //if (user.getPassword().compareTo(pass)==0){return true;}
-           //return false;
+           //return true;
+           if (user.getPassword().compareTo(pass)==0){return true;}
+           return false;
                 
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
