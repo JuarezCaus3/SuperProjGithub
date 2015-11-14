@@ -15,7 +15,7 @@
           <p>ID:
               <h:inputText value="#{administratorManager.id}" id="id" ><f:convertNumber/></h:inputText> 
 
-              <h:message for="username" /></p>
+              <h:message for="name" /></p>
            
           <p>Password:
               <h:inputSecret value="#{administratorManager.pass}" required="true" requiredMessage="*Falta a sua password" id="password"></h:inputSecret>
@@ -31,12 +31,6 @@
 
         
 
-        <h:form>
-            <h:commandLink value="New Attendant" action="admin_attendants_create?faces-redirect=true"/>
-        </h:form>
-         <h:form>
-            <h:commandLink value="New Event Manager" action="admin_event_manager_create?faces-redirect=true"/>
-        </h:form>
 
     </h:body>
 

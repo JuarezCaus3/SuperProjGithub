@@ -11,15 +11,15 @@
 
                 
                 
-                <h:outputLabel for="username" value="Username: " />
+                <h:outputLabel for="name" value="Name: " />
                 <h:inputText 
                     id="id"
                     size="20"
                     required="true"
-                    requiredMessage="Error: Username cannot be empty."
+                    requiredMessage="Error: Name cannot be empty."
                     value="#{administratorManager.newEventManager.id}">
                 </h:inputText>
-                <h:message for="username" errorStyle="color: red" />
+                <h:message for="name" errorStyle="color: red" />
 
                 <h:outputLabel for="password" value="Password: " />
                 <h:inputSecret

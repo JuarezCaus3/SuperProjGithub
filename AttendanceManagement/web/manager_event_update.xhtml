@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+                <h:form>                  
+            <h:panelGrid columns="3">
+                
+                <h:outputLabel for="code" value="Code: " />
+                <h:inputText 
+                    id="id"
+                    size="20"
+                    required="true"
+                    requiredMessage="Error: Code cannot be empty."
+                    value="#{administratorManager.currentEvent.id}">
+                </h:inputText>
+                <h:message for="code" errorStyle="color: red" />
+                <h:outputLabel for="name" value="Name: " />
+                <h:inputText 
+                    id="name"
+                    size="52"
+                    required="true"
+                    requiredMessage="Error: Name cannot be empty."                            
+                    value="#{administratorManager.currentEvent.name}" />
+                <h:message for="name" errorStyle="color: red" />
+
+                <h:outputLabel for="room" value="Room: " />
+                <h:inputText
+                    id="room"
+                    size="52"
+                    required="true"
+                    requiredMessage="Error: room cannot be empty."                            
+                    value="#{administratorManager.currentEvent.room}" >
+                </h:inputText>    
+                <h:message for="room" errorStyle="color: red" />
+                           
+                 <h:outputLabel for="date" value="Date(dd-mm-yyyy): " />
+                <h:inputText
+                    id="date"
+                    size="52"
+                    required="true"
+                    requiredMessage="Error: Date cannot be empty."                            
+    		 value="#{administratorManager.currentEvent.date}" >
+			<f:convertDateTime pattern="d-M-yyyy" />
+		  </h:inputText>
+                   
+                <h:message for="date" errorStyle="color: red"/> 
+                    
+           <h:outputLabel for="hour" value="Hour: " />
+                <h:inputText
+                    id="hour"
+                    size="52"
+                    required="true"
+                    requiredMessage="Error: Hour cannot be empty."                            
+    		 value="#{administratorManager.currentEvent.hora}" >
+		
+		  </h:inputText>
+                 
+                <h:message for="hour" errorStyle="color: red" /> 
+                    
+                    
+                <h:outputLabel for="week" value="Week: " />
+                <h:inputText
+                    id="week"
+                    size="52"
+                    required="true"
+                    requiredMessage="Error: week cannot be empty."                            
+    		 value="#{administratorManager.currentEvent.week}" >
+		
+		  </h:inputText>
+               
+                <h:message for="week" errorStyle="color: red" /> 
+  
+                    
+                    
+                <h:outputLabel for="status" value="Status: " />
+                <h:inputText
+                    id="status"
+                    size="52"
+                    required="true"
+                    requiredMessage="Error: status cannot be empty."                            
+    		 value="#{administratorManager.currentEvent.status}" >
+		
+		  </h:inputText>
+               
+                <h:message for="week" errorStyle="color: red" /> 
+                    
+                    <h:outputLabel for="subject" value="Subject: " />
+                <h:selectOneMenu
+                    id="subject"
+                    value="#{administratorManager.currentEvent.subject}" >
+                    <f:selectItems
+                        value="#{administratorManager.allSubjects}"
+                        var="sub"
+                        itemValue="#{sub.id}"
+                        itemLabel="#{sub.name}" />
+                </h:selectOneMenu> 
+                      </h:panelGrid >    
+                   
+                <br></br>
+                
+                      <h:dataTable
+            var="attendant"
+            summary="Enrolled attendants"
+            value="#{administratorManager.checkedInAttendants}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="CheckIn attendants" />
+            </f:facet>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{attendant.id}" />
+                <!--Falta validar o formato-->
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{attendant.name}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{attendant.email}" />
+            </h:column>                        
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="CheckOut" actionListener="#{administratorManager.checkOutAttendant}">
+                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>            
+
+        <br/>
+
+        <h:dataTable
+            var="attendant"
+            summary="CheckedOut attendants"
+            value="#{administratorManager.checkedOutAttendants}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="CheckedOut attendants" />
+            </f:facet>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{attendant.id}" />
+                <!--Falta validar o formato-->
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{attendant.name}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{attendant.email}" />
+            </h:column>                        
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="CheckIn" actionListener="#{administratorManager.checkInAttendant}">
+                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>     
+
+
+                <br></br>
+
+              <h:form>                  
+            <h:commandLink
+                id="return"
+                value="Return"
+                action="manager_checkevents?faces-redirect=true" />
+        </h:form>
+                             
+
+        </h:form>
+    </h:body>
+</html>
+

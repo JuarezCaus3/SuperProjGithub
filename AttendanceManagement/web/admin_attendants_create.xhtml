@@ -10,15 +10,15 @@
             <h:panelGrid columns="3">
 
                 
-                <h:outputLabel for="username" value="Username: " />
+                <h:outputLabel for="id" value="Id: " />
                 <h:inputText 
                     id="id"
                     size="20"
                     required="true"
-                    requiredMessage="Error: Username cannot be empty."
+                    requiredMessage="Error: Name cannot be empty."
                     value="#{administratorManager.newAttendant.id}">
                 </h:inputText>
-                <h:message for="username" errorStyle="color: red" />
+                <h:message for="name" errorStyle="color: red" />
 
                 <h:outputLabel for="password" value="Password: " />
                 <h:inputSecret

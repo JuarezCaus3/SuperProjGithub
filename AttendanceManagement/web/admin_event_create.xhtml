@@ -9,8 +9,16 @@
     <h:body>
         <h:form>                  
             <h:panelGrid columns="3">
-
-            
+                
+                <h:outputLabel for="code" value="Code: " />
+                <h:inputText 
+                    id="id"
+                    size="20"
+                    required="true"
+                    requiredMessage="Error: Code cannot be empty."
+                    value="#{administratorManager.newEvent.id}">
+                </h:inputText>
+                <h:message for="code" errorStyle="color: red" />
                 <h:outputLabel for="name" value="Name: " />
                 <h:inputText 
                     id="name"
@@ -55,13 +63,27 @@
                 <h:message for="hour" errorStyle="color: red" /> 
                     
                     
-                                  <h:outputLabel for="week" value="Week: " />
+                <h:outputLabel for="week" value="Week: " />
                 <h:inputText
                     id="week"
                     size="52"
                     required="true"
                     requiredMessage="Error: week cannot be empty."                            
     		 value="#{administratorManager.newEvent.week}" >
+		
+		  </h:inputText>
+               
+                <h:message for="week" errorStyle="color: red" /> 
+  
+                    
+                    
+                <h:outputLabel for="status" value="Status: " />
+                <h:inputText
+                    id="status"
+                    size="52"
+                    required="true"
+                    requiredMessage="Error: status cannot be empty."                            
+    		 value="#{administratorManager.newEvent.status}" >
 		
 		  </h:inputText>
                
@@ -88,7 +110,7 @@
                     id="submit"
                     value="Create"
                     binding="#{administratorManager.component}" 
-                    action="#{administratorManager.createEventManager}" />
+                    action="#{administratorManager.createEvent}" />
                 <h:message for="submit" style="color: red"/>
                              
 

@@ -20,8 +20,8 @@ public class UserDTO implements Serializable{
     }
     
     public void reset() {
-        setPassword(null);
         setName(null);
+        setPassword(null);
         setEmail(null);
     }        
 

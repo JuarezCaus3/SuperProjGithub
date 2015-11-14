@@ -24,12 +24,11 @@ public class AdministratorBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(long id, String password, String name, String email) {
+    public void create(long id, String name, String password, String email) {
         try {
-            if(em.find(Administrator.class, id) != null){
-                return;
-            }
-            em.persist(new Administrator(id, password, name, email));
+
+            em.persist(new Administrator(id, name, password, email));
+            
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -44,16 +43,16 @@ public class AdministratorBean {
         }
     }
 
-    public void update(long id, String password, String name, String email) {
+    public void update(long id, String name, String password, String email) {
         try {
             
             Administrator admin = em.find(Administrator.class, id);
             if (admin == null) {
                throw new EJBException("This administrator id does not exist");
             }
-           
-            admin.setPassword(password);
+                      
             admin.setName(name);
+            admin.setPassword(password);
             admin.setEmail(email);
             em.merge(admin);
                      

@@ -13,7 +13,7 @@
             
             var="event"
             summary="List of all attendant's Events"
-            value="#{administratorManager.currentAttendantsEvents}"
+            value="#{administratorManager.currentEventManagersEvents}"
             rules="all"
             cellpadding="5">
 
@@ -47,7 +47,7 @@
                     <f:facet name="header">
                         <h:outputText value="Date" />
                     </f:facet>
-                                <h:outputText value="#{event.date}" />
+                    <h:outputText value="#{event.date}" />
                 </h:column>
             
                             <h:column>
@@ -58,24 +58,23 @@
                 </h:column>
             
                         
-                            <h:column>
+                <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Week" />
+                    <h:outputText value="Week" />
                     </f:facet>
                     <h:outputText value="#{event.week}" />
                 </h:column>
             
-                        
-                <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Actions" />
-                </f:facet>
-                <h:form>
-                    <h:commandLink value="CheckOut" actionListener="#{administratorManager.checkOutAttendant}">
-                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
-                    </h:commandLink>
-                </h:form>
-            </h:column>
+            <h:column>
+                    <f:facet name="header">
+                    <h:outputText value="Status" />
+                    </f:facet>
+                    <h:outputText value="#{event.status}" />
+                </h:column>
+            
+                <h:commandLink value="Update" action="manager_event_update?faces-redirect=true">
+                    <f:setPropertyActionListener target="#{administratorManager.currentEvent}" value="#{event}" />
+                </h:commandLink>
 
         </h:dataTable>
 

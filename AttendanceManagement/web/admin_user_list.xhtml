@@ -21,7 +21,7 @@
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="ID" />
+                        <h:outputText value="Id" />
                     </f:facet>
                     <h:outputText value="#{at.id}" />
                   
@@ -167,6 +167,14 @@
          
 
         <br/>
+        
+        <h:form>
+            <h:commandLink value="New Attendant" action="admin_attendants_create?faces-redirect=true"/>
+        </h:form>
+         <h:form>
+            <h:commandLink value="New Event Manager" action="admin_event_manager_create?faces-redirect=true"/>
+        </h:form>
+
 
         <h:form>                  
             <h:commandLink
