@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">  
+    <h:head>
+        <title>Attendance Management</title>
+    </h:head>
+    <h:body>
+        <h:panelGrid columns="2">
+
+            <h:outputLabel for="id" value="ID: " />
+            <h:outputText 
+                id="Id"
+                value="#{administratorManager.currentEvent.id}"/>
+
+            
+            <h:outputLabel for="name" value="Name: " />
+            <h:outputText 
+                id="name"
+                value="#{administratorManager.currentEvent.name}"/>
+            
+            
+            <h:outputLabel for="date" value="Date : " />
+            <h:outputText 
+                id="date"
+                value="#{administratorManager.currentEvent.date}"/>
+
+                  <h:outputLabel for="week" value="week : " />
+            <h:outputText 
+                id="week"
+                value="#{administratorManager.currentEvent.week}"/>
+
+                <h:outputLabel for="room" value="Room : " />
+            <h:outputText 
+                id="room"
+                value="#{administratorManager.currentEvent.room}"/>
+            
+                <h:outputLabel for="hora" value="Hora : " />
+            <h:outputText 
+                id="hora"
+                value="#{administratorManager.currentEvent.hora}"/>
+
+      
+
+        </h:panelGrid>
+
+
+        <h:form>                  
+            <h:commandLink
+                id="return"
+                value="Return"
+                action="admin_event_list?faces-redirect=true" />
+        </h:form>
+        
+        <h:messages errorStyle="color: red" />        
+
+    </h:body>
+</html>
+

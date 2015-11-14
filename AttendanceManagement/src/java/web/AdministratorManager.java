@@ -600,7 +600,7 @@ public class AdministratorManager {
             currentAttendant = null;
             currentEventManager = null;
             currentAdministrator = administratorBean.getAdministrator(ola1);
-            return "admin_user_list?faces-redirect=true"; }else{
+            return "admin_home?faces-redirect=true"; }else{
           if (loggedUser.getUserType().compareTo("Attendant")==0) { 
               currentAdministrator = null;
               currentEventManager = null;

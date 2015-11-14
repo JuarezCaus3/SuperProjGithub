@@ -75,8 +75,8 @@
                         <f:setPropertyActionListener target="#{administratorManager.currentEvent}" value="#{ae}" />
                     </h:commandLink>
                     &nbsp;
-                    <h:commandLink value="Update" action="admin_event_list?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.updateEvent}" value="#{ae}" />
+                    <h:commandLink value="Update" action="admin_event_update?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.current}" value="#{ae}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Remove" actionListener="#{administratorManager.removeEvent}">
@@ -91,6 +91,58 @@
                 </h:column> 
         </h:dataTable>
           
+          <h:dataTable
+            var="ae"
+            summary="List of Subjects"
+            value="#{administratorManager.allSubjects}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="Subjects" />
+            </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID" />
+                    </f:facet>
+                    <h:outputText value="#{ae.id}" />
+                  
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{ae.name}" />
+                </h:column>
+                
+            
+                <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                    
+                    
+                <h:form>
+                    <h:commandLink value="Details" action="admin_subject_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentSubject}" value="#{ae}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Update" action="admin_subjects_update?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentSubject}" value="#{ae}" />
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeSubject}">
+                        <f:param name="Subject" id="subjectID" value="#{ae.id}" />
+                    </h:commandLink>
+                    &nbsp;
+                 
+                </h:form>
+                </h:column> 
+        </h:dataTable>
+        
+        
 
     </h:body>
 </html>
