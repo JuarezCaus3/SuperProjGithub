@@ -73,7 +73,21 @@ public class SubjectBean {
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
-    }    
+    }  
+    
+    public List<SubjectDTO> getEventManagerSubjects(long id) {
+        try {
+            EventManager manager = em.find(EventManager.class, id);
+            if (manager == null) {
+                throw new EJBException("Manager does not exists.");
+            }
+
+            return subjectsToDTOs(manager.getSubjects());
+            
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
 
     public List<SubjectDTO> getAttendantSubjects(long id) {
         try {

@@ -110,6 +110,34 @@ public class EventBean {
             throw new EJBException(e.getMessage());
         }
     }
+    
+    public List<EventDTO> getEventManagerEvents(long id) {
+        try {
+            EventManager manager = em.find(EventManager.class, id);
+            if (manager == null) {
+                throw new EJBException("Manager does not exists.");
+            }
+
+            return eventsToDTOs(manager.getEvents());
+            
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
+        
+    public List<EventDTO> getAttendantEvents(long id) {
+        try {
+            Attendant attendant = em.find(Attendant.class, id);
+            if (attendant == null) {
+                throw new EJBException("Attendant does not exists.");
+            }
+
+            return eventsToDTOs(attendant.getEvents());
+            
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
         
             EventDTO eventToDTO(Event event) {
         return new EventDTO(

@@ -47,15 +47,15 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentAttendant}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentAttendant}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
-                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeUser}">
-                        <f:param name="studentUsername" id="userUsername" value="#{at.username}" />
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeAttendant}">
+                        <f:param name="attendantId" id="attendantId" value="#{at.id}" />
                     </h:commandLink>
                 </h:form>
  </h:column> 
@@ -99,15 +99,15 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentEventManager}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentEventManager}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
-                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeUser}">
-                        <f:param name="UserUsername" id="UsertUsername" value="#{at.username}" />
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeEventManager}">
+                        <f:param name="managerId" id="managerId" value="#{at.id}" />
                     </h:commandLink>
                 </h:form>
  </h:column> 
@@ -116,7 +116,7 @@
            <h:dataTable
             var="at"
             summary="List of all Admins"
-            value="#{administratorManager.getAllAdmins}"
+            value="#{administratorManager.getAllAdministrators}"
             rules="all"
             cellpadding="5">
 
@@ -151,15 +151,15 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
-                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeUser}">
-                        <f:param name="studentUsername" id="studentUsername" value="#{at.username}" />
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeAdministrator}">
+                        <f:param name="administratorId" id="administratorId" value="#{at.id}" />
                     </h:commandLink>
                 </h:form>
  </h:column> 

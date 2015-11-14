@@ -26,7 +26,7 @@ public class AdministratorBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(int id, String password, String name, String email) {
+    public void create(long id, String password, String name, String email) {
         try {
             if(em.find(Administrator.class, id) != null){
                 return;

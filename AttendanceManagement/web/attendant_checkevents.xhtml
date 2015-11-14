@@ -8,17 +8,17 @@
         <title>Attendance Management</title>
     </h:head>
     <h:body>
-        <!--
+     
         <h:dataTable
             
             var="event"
             summary="List of all attendant's Events"
-            value="#{administratorManager.currentUser.getEvents}"
+            value="#{administratorManager.currentAttendantsEvents}"
             rules="all"
             cellpadding="5">
 
             <f:facet name="header">
-                <h:outputText value="Student's Subjects" />
+                <h:outputText value="Attendant's Events" />
             </f:facet>
 
                 <h:column>
@@ -33,25 +33,40 @@
                     <f:facet name="header">
                         <h:outputText value="Name" />
                     </f:facet>
-                    <h:outputText value="#{subject.name}" />
+                    <h:outputText value="#{event.name}" />
+                </h:column>
+            
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Room" />
+                    </f:facet>
+                    <h:outputText value="#{event.room}" />
+                </h:column>
+            
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Date" />
+                    </f:facet>
+                                <h:outputText value="#{event.date}" />
+                </h:column>
+            
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hour" />
+                    </f:facet>
+                    <h:outputText value="#{event.hour}" />
+                </h:column>
+            
+                        
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Week" />
+                    </f:facet>
+                    <h:outputText value="#{event.week}" />
                 </h:column>
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Course Year" />
-                    </f:facet>
-                    <h:outputText value="#{subject.courseYear}" />
-                </h:column>                        
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Scholar Year" />
-                    </f:facet>
-                    <h:outputText value="#{subject.scholarYear}" />
-                </h:column>                        
-
         </h:dataTable>
-    -->
+
         
     </h:body>
     

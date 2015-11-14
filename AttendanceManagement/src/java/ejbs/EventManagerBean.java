@@ -6,12 +6,8 @@
 package ejbs;
 
 import dto.EventManagerDTO;
-import entities.Attendant;
-import entities.Event;
 import entities.EventManager;
-import entities.Subject;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
