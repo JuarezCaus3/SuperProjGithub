@@ -125,6 +125,22 @@ public class AdministratorManager {
         }
         return "admin_user_update";
     }
+    
+    public String updateUser() {
+        try {
+            userBean.update(
+                   currentUser.getId(),
+                   currentUser.getPassword(),
+                    currentUser.getName(),
+                   currentUser.getEmail());
+            return "home?faces-redirect=true";
+            
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+        return "admin_user_update";
+    }
+    
 
     public void removeAttendant(ActionEvent event) {
         try {

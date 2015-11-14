@@ -47,11 +47,11 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentAttendant}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentAttendant}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{at}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Remove" actionListener="#{administratorManager.removeAttendant}">
@@ -99,7 +99,7 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentEventManager}" value="#{manager}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{manager}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
@@ -151,11 +151,11 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{admin}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{admin}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{admin}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{admin}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Remove" actionListener="#{administratorManager.removeAdministrator}">
