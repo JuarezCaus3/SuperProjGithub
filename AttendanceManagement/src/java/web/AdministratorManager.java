@@ -16,6 +16,9 @@ import ejbs.AttendantBean;
 import ejbs.EventBean;
 import ejbs.EventManagerBean;
 import ejbs.SubjectBean;
+import ejbs.UserBean;
+import entities.User;
+
 
 import java.util.List;
 import javax.ejb.EJB;
@@ -43,6 +46,9 @@ public class AdministratorManager {
     private SubjectBean subjectBean;
     @EJB
     private AdministratorBean administratorBean; 
+    @EJB
+    private UserBean userBean;
+
     
     private AttendantDTO newAttendant;
     private AttendantDTO currentAttendant;
@@ -56,7 +62,11 @@ public class AdministratorManager {
     private AdministratorDTO currentAdministrator;
     private UIComponent component;
     private UserDTO currentUser;
-    private String username,pass;
+    private String pass;
+    private String valid;
+    private String id;
+    
+    private User loggedUser;
         
         public AdministratorManager() {
             
@@ -120,8 +130,8 @@ public class AdministratorManager {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("attendantId");
             String value = param.getValue().toString();
-            long id = Long.parseLong(value);
-            attendantBean.remove(id);
+            long code = Long.parseLong(value);
+            attendantBean.remove(code);
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
@@ -191,8 +201,8 @@ public class AdministratorManager {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("managerId");
             String value = param.getValue().toString();
-            long id = Long.parseLong(value);
-            eventManagerBean.remove(id);
+            long code = Long.parseLong(value);
+            eventManagerBean.remove(code);
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
@@ -279,8 +289,8 @@ public class AdministratorManager {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("attendantId");
             String value = param.getValue().toString();
-            long id = Long.parseLong(value);
-            attendantBean.checkInAttendant(id, currentEvent.getId());
+            long code = Long.parseLong(value);
+            attendantBean.checkInAttendant(code, currentEvent.getId());
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage()); 
         }
@@ -352,8 +362,8 @@ public class AdministratorManager {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("attendantId");
             String value = param.getValue().toString();
-            long id = Long.parseLong(value);
-            attendantBean.enrollAttendant(id, currentSubject.getId());
+            long code = Long.parseLong(value);
+            attendantBean.enrollAttendant(code, currentSubject.getId());
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage()); 
         }
@@ -363,8 +373,8 @@ public class AdministratorManager {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("attendantId");
             String value = param.getValue().toString();
-            long id = Long.parseLong(value);
-            attendantBean.unrollAttendant(id, currentSubject.getId());
+            long code = Long.parseLong(value);
+            attendantBean.unrollAttendant(code, currentSubject.getId());
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage()); 
         }
@@ -414,8 +424,8 @@ public class AdministratorManager {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("administratorId");
             String value = param.getValue().toString();
-            long id = Long.parseLong(value);
-            administratorBean.remove(id);
+            long code = Long.parseLong(value);
+            administratorBean.remove(code);
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
@@ -504,12 +514,12 @@ public class AdministratorManager {
         this.currentAdministrator = currentAdministrator;
     } 
     
-    public String getUsername() {
-        return username;
+    public String getId() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getPass() {
@@ -527,14 +537,35 @@ public class AdministratorManager {
     public void setComponent(UIComponent component) {
         this.component = component;
     } 
+
+    public String getValid() {
+        return valid;
+    }
+
+    public void setValid(String valid) {
+        this.valid = valid;
+    }
     
     
     //to implement
     public String loginUser(){
-        //getUserlogin
-        //switchcase ? ifs 
-        
-        return "";    
+        long ola1 = Long.parseLong(id);
+       boolean ola=userBean.verifyPass(ola1, pass);
+       
+        if (!ola){ 
+            valid="axxx";
+            return "index?faces-redirect=true";}
+        else{
+        loggedUser = userBean.getUser(ola1);
+        if (loggedUser.getUserType().compareTo("Admin")==0) { 
+            return "home?faces-redirect=true"; }else{
+          if (loggedUser.getUserType().compareTo("Attendant")==0) { 
+            return "home?faces-redirect=true"; } else{
+            if (loggedUser.getUserType().compareTo("manager")==0) { 
+            return "home?faces-redirect=true"; } }}
+        }
+             valid=loggedUser.getUserType();
+          return "index?faces-redirect=true";
     }
     
     public String logoutUser(){
