@@ -60,8 +60,56 @@ and open the template in the editor.
             <f:setPropertyActionListener target="#{administratorManager.loggedUser}" value="#{user}" />
         </h:commandLink>
         </h:form>
+       
         
         <br/>
         <br/>
+        
+        <h:dataTable
+            var="subject"
+            summary="List of all subjects"
+            value="#{administratorManager.allSubjects}"
+            rules="all" 
+            cellpadding="5">
+            
+            <f:facet name="header">
+                <h:outputText value="Subjects" />
+            </f:facet>                        
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Code" />
+                </f:facet>
+                <h:outputText value="#{subject.id}" />
+                <!--Falta validar o formato-->
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{subject.name}" />
+            </h:column>                    
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="Details" action="admin_subjects_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentSubject}" value="#{subject}" />
+                    </h:commandLink>
+            
+                    <h:commandLink value="Manage Students" action="admin_subjects_update?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentSubject}" value="#{subject}" />
+                    </h:commandLink>
+            
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeSubject}">
+                        <f:param name="subjectId" id="subjectId" value="#{subject.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>                        
+
+        </h:dataTable>
     </h:body>
 </html>

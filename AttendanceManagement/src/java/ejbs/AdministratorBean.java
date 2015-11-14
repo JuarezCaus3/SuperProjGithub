@@ -79,7 +79,7 @@ public class AdministratorBean {
     
      public List<AdministratorDTO> getAll() {
         try {
-            List<Administrator> admin = (List<Administrator>) em.createNamedQuery("getAllAdministrator").getResultList();
+            List<Administrator> admin = (List<Administrator>) em.createNamedQuery("getAllAdministrators").getResultList();
             return administratorsToDTOs(admin);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
