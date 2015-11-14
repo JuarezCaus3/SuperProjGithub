@@ -128,6 +128,7 @@ public class EventBean {
             if (manager == null) {
                 throw new EJBException("Manager does not exists.");
             }
+            
 
             return eventsToDTOs(manager.getEvents());
             

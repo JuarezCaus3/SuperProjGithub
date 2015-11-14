@@ -64,7 +64,14 @@
                     </f:facet>
                     <h:outputText value="#{event.week}" />
                 </h:column>
-
+            
+               
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Open" />
+                    </f:facet>
+                                <h:outputText value="#{event.status}" />
+                </h:column>
         </h:dataTable>
 
         

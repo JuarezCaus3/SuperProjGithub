@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "ADMINISTRATORS")
 @NamedQueries({
     @NamedQuery(name = "getAllAdministrators",
-    query = "SELECT c FROM Event c ORDER BY c.id"),
+    query = "SELECT c FROM Administrator c ORDER BY c.id"),
     })
 public class Administrator extends User implements Serializable {
 
