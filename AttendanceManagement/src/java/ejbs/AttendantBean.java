@@ -48,10 +48,11 @@ public class AttendantBean {
         }
     }
      
-    public Attendant getAttendant(long id) {
+    public AttendantDTO getAttendant(long id) {
         try {
             Attendant attendant = em.find(Attendant.class, id);
-            return attendant;
+            
+            return attendantToDTO(attendant);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }

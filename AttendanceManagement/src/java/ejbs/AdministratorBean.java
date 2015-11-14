@@ -35,10 +35,10 @@ public class AdministratorBean {
         }
     }
     
-    public Administrator getAdministrator(long id) {
+    public AdministratorDTO getAdministrator(long id) {
         try {
-            Administrator admin = em.find(Administrator.class, id);
-            return admin;
+            Administrator admin = em.find(Administrator.class, id);      
+            return administratorToDTO(admin);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }

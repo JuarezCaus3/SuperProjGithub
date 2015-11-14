@@ -7,7 +7,7 @@
         <title>Attendant Management</title>
     </h:head>
     <h:body>
-     <h:panelGrid columns="3">
+ 
         <h:dataTable
             var="at"
             summary="List of all Attendants"
@@ -62,7 +62,7 @@
         </h:dataTable>
          
            <h:dataTable
-            var="at"
+            var="manager"
             summary="List of all Event Managers"
             value="#{administratorManager.allEventManagers}"
             rules="all"
@@ -76,7 +76,7 @@
                     <f:facet name="header">
                         <h:outputText value="ID" />
                     </f:facet>
-                    <h:outputText value="#{at.id}" />
+                    <h:outputText value="#{manager.id}" />
                   
                 </h:column>
 
@@ -84,14 +84,14 @@
                     <f:facet name="header">
                         <h:outputText value="Name" />
                     </f:facet>
-                    <h:outputText value="#{at.name}" />
+                    <h:outputText value="#{manager.name}" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Email" />
                     </f:facet>
-                    <h:outputText value="#{at.email}" />
+                    <h:outputText value="#{manager.email}" />
                 </h:column>    
                        <h:column>
                 <f:facet name="header">
@@ -99,24 +99,24 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentEventManager}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentEventManager}" value="#{manager}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentEventManager}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{manager}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Remove" actionListener="#{administratorManager.removeEventManager}">
-                        <f:param name="managerId" id="managerId" value="#{at.id}" />
+                        <f:param name="managerId" id="managerId" value="#{manager.id}" />
                     </h:commandLink>
                 </h:form>
  </h:column> 
         </h:dataTable>
          
            <h:dataTable
-            var="at"
+            var="admin"
             summary="List of all Admins"
-            value="#{administratorManager.getAllAdministrators}"
+            value="#{administratorManager.allAdministrators}"
             rules="all"
             cellpadding="5">
 
@@ -128,7 +128,7 @@
                     <f:facet name="header">
                         <h:outputText value="ID" />
                     </f:facet>
-                    <h:outputText value="#{at.id}" />
+                    <h:outputText value="#{admin.id}" />
                   
                 </h:column>
 
@@ -136,14 +136,14 @@
                     <f:facet name="header">
                         <h:outputText value="Name" />
                     </f:facet>
-                    <h:outputText value="#{at.name}" />
+                    <h:outputText value="#{admin.name}" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Email" />
                     </f:facet>
-                    <h:outputText value="#{at.email}" />
+                    <h:outputText value="#{admin.email}" />
                 </h:column>    
                <h:column>
                 <f:facet name="header">
@@ -151,21 +151,21 @@
                 </f:facet>
                 <h:form>
                     <h:commandLink value="Details" action="admin_user_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{admin}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_user_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{at}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentAdministrator}" value="#{admin}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Remove" actionListener="#{administratorManager.removeAdministrator}">
-                        <f:param name="administratorId" id="administratorId" value="#{at.id}" />
+                        <f:param name="administratorId" id="administratorId" value="#{admin.id}" />
                     </h:commandLink>
                 </h:form>
  </h:column> 
         </h:dataTable>
          
- </h:panelGrid >  
+
         <br/>
 
         <h:form>                  

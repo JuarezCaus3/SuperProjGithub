@@ -24,8 +24,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "MANAGERS")
 @NamedQueries({
-    @NamedQuery(name = "getAllManagers",
-    query = "SELECT c FROM Event c ORDER BY c.id"),
+    @NamedQuery(name = "getAllEventManagers",
+    query = "SELECT c FROM EventManager c ORDER BY c.id"),
     })
 public class EventManager extends User implements Serializable {
 

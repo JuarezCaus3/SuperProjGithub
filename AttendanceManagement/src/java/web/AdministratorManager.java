@@ -300,8 +300,8 @@ public class AdministratorManager {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("attendantId");
             String value = param.getValue().toString();
-            long id = Long.parseLong(value);
-            attendantBean.checkOutAttendant(id, currentEvent.getId());
+            long code = Long.parseLong(value);
+            attendantBean.checkOutAttendant(code, currentEvent.getId());
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage()); 
         }
@@ -545,8 +545,15 @@ public class AdministratorManager {
     public void setValid(String valid) {
         this.valid = valid;
     }
-    
-    
+
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
+    }
+
     //to implement
     public String loginUser(){
         long ola1 = Long.parseLong(id);
@@ -557,12 +564,20 @@ public class AdministratorManager {
             return "index?faces-redirect=true";}
         else{
         loggedUser = userBean.getUser(ola1);
+        System.out.println("user: " + loggedUser);
         if (loggedUser.getUserType().compareTo("Admin")==0) { 
+            currentAdministrator = administratorBean.getAdministrator(ola1);
             return "home?faces-redirect=true"; }else{
           if (loggedUser.getUserType().compareTo("Attendant")==0) { 
+              currentAttendant = attendantBean.getAttendant(ola1);
+              System.out.println("att: " + currentAttendant);
             return "home?faces-redirect=true"; } else{
             if (loggedUser.getUserType().compareTo("manager")==0) { 
-            return "home?faces-redirect=true"; } }}
+                currentEventManager = eventManagerBean.getEventManager(ola1);
+                return "home?faces-redirect=true"; 
+            } 
+          }
+        }
         }
              valid=loggedUser.getUserType();
           return "index?faces-redirect=true";

@@ -33,10 +33,10 @@ public class EventManagerBean {
         }
     }
     
-public EventManager getEventManager(long id) {
+public EventManagerDTO getEventManager(long id) {
         try {
             EventManager manager = em.find(EventManager.class, id);
-            return manager;
+            return eventManagerToDTO(manager);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -77,7 +77,7 @@ public EventManager getEventManager(long id) {
     
      public List<EventManagerDTO> getAll() {
         try {
-            List<EventManager> eventManager = (List<EventManager>) em.createNamedQuery("getAllEventManager").getResultList();
+            List<EventManager> eventManager = (List<EventManager>) em.createNamedQuery("getAllEventManagers").getResultList();
             return eventManagersToDTOs(eventManager);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
