@@ -10,15 +10,12 @@
                 <h:form>                  
             <h:panelGrid columns="3">
                 
-                <h:outputLabel for="code" value="Code: " />
-                <h:inputText 
+                <h:outputLabel for="id" value="Code: " />
+                <h:outputText 
                     id="id"
-                    size="20"
-                    required="true"
-                    requiredMessage="Error: Code cannot be empty."
                     value="#{administratorManager.currentEvent.id}">
-                </h:inputText>
-                <h:message for="code" errorStyle="color: red" />
+                </h:outputText>
+                <h:message for="id" errorStyle="color: red" />
                 <h:outputLabel for="name" value="Name: " />
                 <h:inputText 
                     id="name"
@@ -205,6 +202,12 @@
                 id="return"
                 value="Return"
                 action="admin_event_list?faces-redirect=true" />
+            
+             <h:commandButton
+                    id="submit"
+                    value="Update"
+                    action="#{administratorManager.updateEvent}" />
+                <h:message for="submit" style="color: red"/>
         </h:form>
                              
 

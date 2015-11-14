@@ -37,7 +37,7 @@ public class EventManager extends User implements Serializable {
             = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "ID"))
     private List<Subject> subjects;
     
-    @OneToMany(mappedBy = "manager")
+    @OneToMany(mappedBy = "manager", orphanRemoval = true)
     private List<Event> events;
  
     protected EventManager() {

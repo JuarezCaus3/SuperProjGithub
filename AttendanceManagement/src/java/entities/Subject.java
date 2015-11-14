@@ -8,6 +8,7 @@ package entities;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -35,13 +36,13 @@ public class Subject implements Serializable {
     private String name;
     
     
-    @ManyToMany(mappedBy = "subjects")
+    @ManyToMany(mappedBy = "subjects", cascade = CascadeType.REMOVE)
     private  List<EventManager> managers;
     
-    @ManyToMany (mappedBy ="subjects")
+    @ManyToMany (mappedBy ="subjects", cascade = CascadeType.REMOVE)
     private List<Attendant> attendants;
         
-    @OneToMany(mappedBy = "subject")
+    @OneToMany(mappedBy = "subject", orphanRemoval = true)
     private List<Event> events;
 
     public Subject() {

@@ -8,6 +8,7 @@ package entities;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -35,7 +36,12 @@ public class Attendant extends User implements Serializable {
             = @JoinColumn(name = "SUBJECT_ID", referencedColumnName = "ID"))
     private List<Subject> subjects;
     
-    @ManyToMany (mappedBy ="attendants")  
+        @ManyToMany
+    @JoinTable(name = "ATTENDANT_EVENT",
+            joinColumns
+            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ID"),
+           inverseJoinColumns
+            = @JoinColumn(name = "EVENT_ID", referencedColumnName = "ID")) 
     private List<Event> events;
     
     

@@ -67,7 +67,7 @@ public class EventBean {
         }
     }
 
-    public void update(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code) {
+    public void update(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code, boolean status) {
         try {
             
             Subject subject = em.find(Subject.class, subject_code);
@@ -93,6 +93,7 @@ public class EventBean {
             subject.addEvent(event);
             event.getManager().removeEvent(event);
             manager.addEvent(event);
+            event.setStatus(status);
             em.merge(event);
                      
         } catch (Exception e) {
@@ -100,7 +101,7 @@ public class EventBean {
         }
     }
 
-    public void remove(long id) {
+    public void remove(int id) {
         try {
 
             Event event = em.find(Event.class, id);

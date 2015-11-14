@@ -267,6 +267,27 @@ public class AdministratorManager {
         }
     }
     
+        public String updateEvent() {
+        try {
+            eventBean.update(
+                    currentEvent.getId(),
+                    currentEvent.getName(),
+                    currentEvent.getRoom(),
+                    currentEvent.getDate(),
+                    currentEvent.getHora(),
+                    currentEvent.getWeek(),
+                    currentEvent.getSubject(),
+                    currentEvent.getManager(),
+                    currentEvent.isStatus()
+            );
+            return "admin_event_list?faces-redirect=true";
+            
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+        return "admin_event_update";
+    }
+    
     public List<EventDTO> getAllEvents(){
         try {
             return eventBean.getAll();
@@ -291,8 +312,9 @@ public class AdministratorManager {
     public void removeEvent(ActionEvent event) {
         try {
             UIParameter param = (UIParameter) event.getComponent().findComponent("eventId");
-            int code = Integer.parseInt(param.getValue().toString());
-            eventBean.remove(code);
+            System.out.println("param: " +param);
+            int id = Integer.parseInt(param.getValue().toString());
+            eventBean.remove(id);
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage()); 
         }

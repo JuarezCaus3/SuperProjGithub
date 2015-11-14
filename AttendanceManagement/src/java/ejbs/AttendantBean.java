@@ -179,7 +179,7 @@ public class AttendantBean {
     }
     
     
-    /////////// Students And Events \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    /////////// Attendants And Events \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     
     
     public void checkInAttendant(long id, int event_code) {
@@ -220,7 +220,7 @@ public class AttendantBean {
             }
             
              if (!event.getAttendants().contains(attendant)) {
-                throw new EJBException("This attendant is not enrolled on this subject");
+                throw new EJBException("This attendant is not checked in on this subject");
             }            
             
             event.removeAttendant(attendant);

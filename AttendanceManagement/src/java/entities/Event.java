@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -60,13 +61,8 @@ public class Event implements Serializable {
     @JoinColumn(name = "MANAGER_ID")
     @NotNull (message="A Event must have an event manager")
     private EventManager manager;
-    
-    @ManyToMany
-    @JoinTable(name = "EVENT_ATTENDANT",
-            joinColumns
-            = @JoinColumn(name = "EVENT_ID", referencedColumnName = "ID"),
-           inverseJoinColumns
-            = @JoinColumn(name = "ATTENDANT_ID", referencedColumnName = "ID"))
+
+    @ManyToMany(mappedBy ="events", cascade = CascadeType.REMOVE) 
     private List<Attendant> attendants;
     
 

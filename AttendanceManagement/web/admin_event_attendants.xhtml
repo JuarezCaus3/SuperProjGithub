@@ -45,7 +45,7 @@ and open the template in the editor.
                     
                 <h:form>
                     <h:commandLink value="CheckOut" actionListener="#{administratorManager.checkOutAttendant}">
-                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
+                        <f:param name="attendantId" id="attendantId" value="#{ae.id}" />
                     </h:commandLink>
                     
                 </h:form>
@@ -84,7 +84,7 @@ and open the template in the editor.
                     
                 <h:form>
                     <h:commandLink value="CheckIn" actionListener="#{administratorManager.checkInAttendant}">
-                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
+                        <f:param name="attendantId" id="attendantId" value="#{ai.id}" />
                     </h:commandLink>
                     
                 </h:form>
