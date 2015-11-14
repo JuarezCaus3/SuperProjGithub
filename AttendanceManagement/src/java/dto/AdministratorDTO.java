@@ -18,10 +18,10 @@ public class AdministratorDTO extends UserDTO implements Serializable{
 
     public AdministratorDTO(
             long id,
-            String password,
             String name,
+            String password,
             String email) {
-        super(id, password, name, email);
+        super(id, name, password, email);
 
     }
     

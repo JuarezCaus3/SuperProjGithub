@@ -21,11 +21,12 @@ public class EventDTO {
     private int week;
     private int subject_code;
     private long manager_code;
+    private boolean status;
 
     public EventDTO() {
     }
 
-    public EventDTO(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code) {
+    public EventDTO(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code, boolean status) {
         this.id = id;
         this.name = name;
         this.room = room;
@@ -34,6 +35,7 @@ public class EventDTO {
         this.week = week;
         this.subject_code = subject_code;
         this.manager_code = manager_code;
+        this.status = status;
     }
     
     public void reset() {
@@ -43,6 +45,7 @@ public class EventDTO {
         setDate(null);
         setHora(1);
         setWeek(1);
+        setStatus(false);
     }   
     
     public int getId() {
@@ -108,6 +111,13 @@ public class EventDTO {
     public void setManager(long manager_code) {
         this.manager_code = manager_code;
     }
-    
-    
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+  
 }

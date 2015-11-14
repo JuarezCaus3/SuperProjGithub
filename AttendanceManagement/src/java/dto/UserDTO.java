@@ -12,10 +12,10 @@ public class UserDTO implements Serializable{
     public UserDTO() {
     }    
     
-    public UserDTO(long id, String password, String name, String email) {
+    public UserDTO(long id, String name, String password, String email) {
         this.id = id;
-        this.password = password;
         this.name = name;
+        this.password = password;
         this.email = email;
     }
     

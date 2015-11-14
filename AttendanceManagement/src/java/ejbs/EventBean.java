@@ -28,11 +28,11 @@ public class EventBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code) {
+    public void create(int id, String name, String room, Date date, int hora, int week, int subject_code, long manager_code, boolean status) {
         try {
             Subject subject = em.find(Subject.class, subject_code);
             EventManager manager = em.find(EventManager.class, manager_code);
-            em.persist(new Event(id, name, room, date, hora, week, subject, manager));
+            em.persist(new Event(id, name, room, date, hora, week, subject, manager, status));
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -41,6 +41,17 @@ public class EventBean {
     public List<EventDTO> getAll() {
         try {
             List<Event> events = (List<Event>) em.createNamedQuery("getAllEvents").getResultList();
+            return eventsToDTOs(events);
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
+    
+    public List<EventDTO> getAllOpen() {
+        try {
+            List<Event> events = (List<Event>) em.createNamedQuery("getAllOpenEvents")
+                    .setParameter("status", true)
+                    .getResultList();
             return eventsToDTOs(events);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
@@ -148,7 +159,8 @@ public class EventBean {
                 event.getHora(),
                 event.getWeek(),
                 event.getSubject().getId(),
-                event.getManager().getId());
+                event.getManager().getId(),
+                event.isStatus());
     }
 
     List<EventDTO> eventsToDTOs(List<Event> events) {

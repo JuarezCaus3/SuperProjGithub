@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:panelGrid columns="2">
+
+            <h:outputLabel for="code" value="Code: " />
+            <h:outputText 
+                id="code"
+                value="#{administratorManager.currentSubject.id}"/>
+
+            <h:outputLabel for="name" value="Name: " />
+            <h:outputText 
+                id="name"
+                value="#{administratorManager.currentSubject.name}"/>
+        </h:panelGrid>
+
+        <br/>        
+
+        <h:dataTable
+            var="attendant"
+            summary="Enrolled attendants"
+            value="#{administratorManager.enrolledAttendants}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="Enrolled attendants" />
+            </f:facet>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Username" />
+                </f:facet>
+                <h:outputText value="#{attendant.id}" />
+                <!--Falta validar o formato-->
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{attendant.name}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{attendant.email}" />
+            </h:column>                        
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="Unroll" actionListener="#{administratorManager.unrollAttendant}">
+                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>            
+
+        <br/>
+
+        <h:dataTable
+            var="attendant"
+            summary="Unrolled attendants"
+            value="#{administratorManager.unrolledAttendants}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="Unrolled attendants" />
+            </f:facet>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Username" />
+                </f:facet>
+                <h:outputText value="#{attendant.id}" />
+                <!--Falta validar o formato-->
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{attendant.name}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{attendant.email}" />
+            </h:column>                        
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="Enroll" actionListener="#{administratorManager.enrollAttendant}">
+                        <f:param name="attendantId" id="attendantId" value="#{attendant.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>            
+        
+        
+        <br/>
+
+        <h:form>                  
+            <h:commandLink
+                id="return"
+                value="Return"
+                action="index?faces-redirect=true" />
+        </h:form>
+
+        <h:messages errorStyle="color: red" />        
+
+    </h:body>
+</html>
+
+
+

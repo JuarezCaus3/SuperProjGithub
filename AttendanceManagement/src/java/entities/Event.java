@@ -31,6 +31,8 @@ import javax.validation.constraints.NotNull;
 @NamedQueries({
     @NamedQuery(name = "getAllEvents",
     query = "SELECT c FROM Event c ORDER BY c.id"),
+    @NamedQuery(name = "getAllOpenEvents",
+    query = "SELECT c FROM Event c WHERE c.status = :status ORDER BY c.id")
     })
 public class Event implements Serializable {
 
@@ -46,6 +48,8 @@ public class Event implements Serializable {
     @NotNull
     private int hora;
     private int week;
+    @NotNull
+    private boolean status;
     
     @ManyToOne
     @JoinColumn(name = "SUBJECT_ID")
@@ -70,7 +74,7 @@ public class Event implements Serializable {
         attendants = new LinkedList<>();
     }
 
-    public Event(int id, String name, String room, Date date, int hora, int week, Subject subject, EventManager manager) {
+    public Event(int id, String name, String room, Date date, int hora, int week, Subject subject, EventManager manager, boolean status) {
         this.id = id;
         this.name = name;
         this.room = room;      
@@ -79,6 +83,7 @@ public class Event implements Serializable {
         this.week = week;
         this.subject = subject;
         this.manager = manager;
+        this.status = status;
         attendants = new LinkedList<>();
     }    
         
@@ -161,6 +166,13 @@ public class Event implements Serializable {
     public void removeAttendant(Attendant attendant) {
         attendants.remove(attendant);
     }
-    
-    
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+  
 }

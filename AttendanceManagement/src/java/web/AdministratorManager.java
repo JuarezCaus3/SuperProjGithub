@@ -255,7 +255,8 @@ public class AdministratorManager {
                     newEvent.getHora(),
                     newEvent.getWeek(),
                     newEvent.getSubject(),
-                    newEvent.getManager()
+                    newEvent.getManager(),
+                    newEvent.isStatus()
             );
             return "home?faces-redirect=true";
         } catch (Exception e) {
@@ -272,6 +273,18 @@ public class AdministratorManager {
             return null;
         }
     }
+    
+    public List<EventDTO> getAllOpenEvents(){
+        try {
+            
+            return eventBean.getAllOpen();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());            
+            return null;
+        }
+    }
+    
+    
     
     public void removeEvent(ActionEvent event) {
         try {
@@ -582,14 +595,19 @@ public class AdministratorManager {
         loggedUser = userBean.getUser(ola1);
         System.out.println("user: " + loggedUser);
         if (loggedUser.getUserType().compareTo("Admin")==0) { 
+            currentAttendant = null;
+            currentEventManager = null;
             currentAdministrator = administratorBean.getAdministrator(ola1);
-            return "home?faces-redirect=true"; }else{
+            return "admin_user_list?faces-redirect=true"; }else{
           if (loggedUser.getUserType().compareTo("Attendant")==0) { 
-
+              currentAdministrator = null;
+              currentEventManager = null;
               currentAttendant = attendantBean.getAttendant(ola1);
               System.out.println("att: " + currentAttendant);
             return "attendant_home?faces-redirect=true"; } else{
           if (loggedUser.getUserType().compareTo("manager")==0) { 
+                currentAdministrator = null;
+                currentAttendant = null;
                 currentEventManager = eventManagerBean.getEventManager(ola1);
                 return "home?faces-redirect=true"; 
             } 
