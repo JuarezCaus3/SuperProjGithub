@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Attendance Management</title>
+    </h:head>
+    <h:body>
+        <h:form>                  
+            <h:panelGrid columns="2">
+                <h:outputLabel for="Name" value="Name: " />
+                <h:outputText 
+                    id="name"
+                    value="#{administratorManager.currentEventManager.name}"/>   
+                <h:outputLabel for="Id" value="ID: " />
+                <h:outputText
+                    id="id"  
+                    value="#{administratorManager.currentEventManager.id}"/>                     
+                <h:outputLabel for="email" value="Email: " />
+                <h:outputText
+                    id="email"            
+                    value="#{administratorManager.currentEventManager.email}" /> 
+            </h:panelGrid >                       
+
+        </h:form>
+       <h:form>                  
+           <h:commandButton
+                id="logout"
+                value="Logout"
+                action="#{administratorManager.logoutUser}" />
+             <h:commandButton
+                id="checkEvents"
+                value="Check your events"
+                action="eventmanager_checkevents?faces-redirect=true" />
+             
+        </h:form>
+    </h:body>
+</html>

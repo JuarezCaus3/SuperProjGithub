@@ -591,7 +591,7 @@ public class AdministratorManager {
             return "attendant_home?faces-redirect=true"; } else{
           if (loggedUser.getUserType().compareTo("manager")==0) { 
                 currentEventManager = eventManagerBean.getEventManager(ola1);
-                return "home?faces-redirect=true"; 
+                return "eventmanager_home?faces-redirect=true"; 
             } 
           }
         }
