@@ -38,10 +38,10 @@ public class User implements Serializable {
         
     }
 
-    protected User(long id, String name, String password, String email) {
+    protected User(long id, String password, String name, String email) {
         this.id = id;
+        this.password = password;        
         this.name = name;
-        this.password = password;
         this.email = email;
     }
     

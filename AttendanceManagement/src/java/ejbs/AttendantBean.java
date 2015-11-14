@@ -26,9 +26,9 @@ public class AttendantBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(long id, String name, String password, String email) {
+    public void create(long id, String password, String name, String email) {
         try {
-            Attendant attendant = new Attendant(id, name, password, email);
+            Attendant attendant = new Attendant(id, password, name, email);
             System.out.println(attendant.getName());
             em.persist(attendant);
             
@@ -58,7 +58,7 @@ public class AttendantBean {
         }
     }
 
-    public void update(long id, String name, String password, String email) {
+    public void update(long id, String password, String name, String email) {
         try {
 
             Attendant attendant = em.find(Attendant.class, id);

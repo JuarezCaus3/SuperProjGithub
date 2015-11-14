@@ -45,8 +45,8 @@ public class EventManager extends User implements Serializable {
         events = new LinkedList<>();
     }
 
-    public EventManager(long id, String name, String password, String email) {
-        super(id, name, password, email);
+    public EventManager(long id, String password, String name, String email) {
+        super(id, password, name, email);
         subjects = new LinkedList<>();
         events = new LinkedList<>();
     }

@@ -24,10 +24,10 @@ public class EventManagerBean {
     @PersistenceContext
     private EntityManager em;
 
-    public void create(long id, String name, String password, String email) {
+    public void create(long id, String password, String name, String email) {
         try {
 
-            em.persist(new EventManager(id, name, password, email));
+            em.persist(new EventManager(id, password, name, email));
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -42,7 +42,7 @@ public EventManagerDTO getEventManager(long id) {
         }
     }
 
-    public void update(long id, String name, String password, String email) {
+    public void update(long id, String password, String name, String email) {
         try {
             
             EventManager manager = em.find(EventManager.class, id);

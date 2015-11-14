@@ -44,8 +44,8 @@ public class Attendant extends User implements Serializable {
         events = new LinkedList<>();
     }
 
-    public Attendant(long id, String name, String password, String email) {
-        super(id, name, password, email);
+    public Attendant(long id, String password, String name, String email) {
+        super(id, password, name, email);
         subjects = new LinkedList<>();
         events = new LinkedList<>();
     }

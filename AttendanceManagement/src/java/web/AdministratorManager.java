@@ -90,8 +90,8 @@ public class AdministratorManager {
         try {
             attendantBean.create(
                     newAttendant.getId(),
-                    newAttendant.getName(),
                     newAttendant.getPassword(),
+                    newAttendant.getName(),                   
                     newAttendant.getEmail());
             newAttendant.reset();
             return "admin_user_list?faces-redirect=true";
@@ -115,8 +115,8 @@ public class AdministratorManager {
         try {
             attendantBean.update(
                     currentAttendant.getId(),
-                    currentAttendant.getName(),
                     currentAttendant.getPassword(),
+                    currentAttendant.getName(),
                     currentAttendant.getEmail());
             return "home?faces-redirect=true";
             
@@ -130,8 +130,8 @@ public class AdministratorManager {
         try {
             userBean.update(
                     currentUser.getId(),
-                    currentUser.getName(),
                     currentUser.getPassword(),
+                    currentUser.getName(),                   
                     currentUser.getEmail());
             return "home?faces-redirect=true";
             
@@ -179,8 +179,8 @@ public class AdministratorManager {
         try{
             eventManagerBean.create(
                     newEventManager.getId(),
-                    newEventManager.getName(),
                     newEventManager.getPassword(),
+                    newEventManager.getName(),                    
                     newEventManager.getEmail());
             newEventManager.reset();
             return "home?faces-redirect=true";
@@ -203,8 +203,8 @@ public class AdministratorManager {
         try {
             eventManagerBean.update(
                     currentEventManager.getId(),
-                    currentEventManager.getName(),
                     currentEventManager.getPassword(),
+                    currentEventManager.getName(),
                     currentEventManager.getEmail());
             return "home?faces-redirect=true";
             
@@ -416,8 +416,8 @@ public class AdministratorManager {
         try{
             administratorBean.create(
                     newAdministrator.getId(),
-                    newAdministrator.getName(),
                     newAdministrator.getPassword(),
+                    newAdministrator.getName(),
                     newAdministrator.getEmail());
             newAdministrator.reset();
             return "home?faces-redirect=true";
@@ -440,8 +440,8 @@ public class AdministratorManager {
         try {
             administratorBean.update(
                     currentAdministrator.getId(),
-                    currentAdministrator.getName(),
                     currentAdministrator.getPassword(),
+                    currentAdministrator.getName(),
                     currentAdministrator.getEmail());
             return "home?faces-redirect=true";
             

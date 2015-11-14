@@ -35,9 +35,9 @@ public class ConfigBean {
 
         try {
             
-            administratorBean.create(9129, "David", "admin", "god@emailOfGod.pt");
-            administratorBean.create(9149, "Hugo", "admin", "scrub@emailOfScrub.pt");
-            administratorBean.create(9137, "Rino", "admin", "rino@email.pt");
+            administratorBean.create(9129, "admin", "David", "god@emailOfGod.pt");
+            administratorBean.create(9149, "admin", "Hugo", "scrub@emailOfScrub.pt");
+            administratorBean.create(9137, "admin", "Rino", "rino@email.pt");
 
             attendantBean.create(123, "Manuel", "Manuel", "dae.ei.ipleiria@gmail.com");
             attendantBean.create(1234, "Antonio", "António", "dae.ei.ipleiria@gmail.com");
@@ -50,8 +50,8 @@ public class ConfigBean {
             subjectBean.create(4, "DOTA2");
             subjectBean.create(5, "DAI");
             
-            eventManagerBean.create(6666, "Saitama", "onepunchman", "saitama@op.com");
-            eventManagerBean.create(7777, "MasterRace", "pcmaster", "theone@masterrace.pc");
+            eventManagerBean.create(6666, "onepunchman", "Saitama", "saitama@op.com");
+            eventManagerBean.create(7777, "pcmaster", "MasterRace", "theone@masterrace.pc");
             eventManagerBean.create(8888, "Prof_DAE", "Prof_DAE", "prof_dae.ei.ipleiria@gmail.com");
             eventManagerBean.create(9999, "Nando", "Nando", "prof_nando.ei.ipleiria@gmail.com");
             

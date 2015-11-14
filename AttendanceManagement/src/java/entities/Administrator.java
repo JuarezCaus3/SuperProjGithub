@@ -27,8 +27,8 @@ public class Administrator extends User implements Serializable {
     protected Administrator() {
     }
 
-    public Administrator(long id, String name, String password, String email) {
-        super(id, name, password, email);
+    public Administrator(long id, String password, String name, String email) {
+        super(id, password, name, email);
     }
     
       @Override

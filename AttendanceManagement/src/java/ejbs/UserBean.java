@@ -64,7 +64,7 @@ public class UserBean {
         }
     }
 
-    public void update(long id, String name, String password, String email) {
+    public void update(long id, String password, String name, String email) {
         try {
             
            User user = em.find(User.class, id);

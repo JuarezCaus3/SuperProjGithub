@@ -18,10 +18,10 @@ public class AttendantDTO extends UserDTO implements Serializable{
 
     public AttendantDTO(
             long id,
-            String name,
             String password,
+            String name,
             String email) {
-        super(id, name, password, email);
+        super(id, password, name, email);
 
     }
     
