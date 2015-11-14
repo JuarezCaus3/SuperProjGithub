@@ -609,7 +609,9 @@ public class AdministratorManager {
                 currentAdministrator = null;
                 currentAttendant = null;
                 currentEventManager = eventManagerBean.getEventManager(ola1);
+
                 return "manager_home?faces-redirect=true"; 
+
             } 
           }
         }

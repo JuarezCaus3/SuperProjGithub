@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title>Attendance Management</title>
+    </h:head>
+    <h:body>
+     
+        <h:dataTable
+            
+            var="event"
+            summary="List of all EventManager's Events"
+            value="#{administratorManager.currentEventManagersEvents}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="EventManager's Events" />
+            </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Code" />
+                    </f:facet>
+                    <h:outputText value="#{event.id}" />
+                
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{event.name}" />
+                </h:column>
+            
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Room" />
+                    </f:facet>
+                    <h:outputText value="#{event.room}" />
+                </h:column>
+            
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Date" />
+                    </f:facet>
+                                <h:outputText value="#{event.date}" />
+                </h:column>
+            
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hour" />
+                    </f:facet>
+                    <h:outputText value="#{event.hora}" />
+                </h:column>
+            
+                        
+                            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Week" />
+                    </f:facet>
+                    <h:outputText value="#{event.week}" />
+                </h:column>
+
+        </h:dataTable>
+
+        
+    </h:body>
+    
+</html>
