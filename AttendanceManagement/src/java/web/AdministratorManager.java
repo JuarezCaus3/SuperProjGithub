@@ -289,7 +289,7 @@ public class AdministratorManager {
     
     public void removeEvent(ActionEvent event) {
         try {
-            UIParameter param = (UIParameter) event.getComponent().findComponent("subjectCode");
+            UIParameter param = (UIParameter) event.getComponent().findComponent("eventId");
             int code = Integer.parseInt(param.getValue().toString());
             eventBean.remove(code);
         } catch (Exception e) {
@@ -362,7 +362,7 @@ public class AdministratorManager {
 
     public void removeSubject(ActionEvent event) {
         try {
-            UIParameter param = (UIParameter) event.getComponent().findComponent("subjectCode");
+            UIParameter param = (UIParameter) event.getComponent().findComponent("subjectID");
             int code = Integer.parseInt(param.getValue().toString());
             subjectBean.remove(code);
         } catch (Exception e) {
